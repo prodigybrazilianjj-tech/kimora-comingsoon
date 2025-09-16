@@ -2,13 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kimora Co. – Coming Soon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kimora Co. — Coming Soon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #ffefd5, #ff7f32, #cc5500);
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, #fda085, #f6d365);
       color: white;
       text-align: center;
       min-height: 100vh;
@@ -16,34 +19,28 @@
       flex-direction: column;
       justify-content: space-between;
     }
-    header {
-      padding: 60px 20px 20px;
-      z-index: 2;
-      position: relative;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      background: linear-gradient(to right, #fffacd, #ffffff, #ffe4b5);
+    header h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      margin: 30px 0 10px 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #fff, #ffe0b2);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: pulse 2s infinite;
     }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.6; }
+    .hero h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 10px 0;
     }
-    p {
+    .hero p {
       font-size: 1.1rem;
-      margin-bottom: 30px;
-      color: #fff8f0;
+      max-width: 600px;
+      margin: 0 auto 20px;
     }
     form {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 15px;
+      margin-top: 15px;
     }
     input[type="email"] {
       padding: 12px;
@@ -54,22 +51,19 @@
     }
     button {
       padding: 12px 20px;
+      margin-left: 10px;
       border: none;
       border-radius: 8px;
       background-color: #d35400;
       color: white;
       font-weight: bold;
       cursor: pointer;
-      transition: background 0.2s;
-    }
-    button:hover {
-      background-color: #e67e22;
     }
     .countdown {
+      margin: 30px 0;
       display: flex;
       justify-content: center;
       gap: 30px;
-      margin: 30px 0;
     }
     .countdown div {
       text-align: center;
@@ -79,43 +73,24 @@
     }
     footer {
       padding: 20px;
-      border-top: 1px solid #ffb266;
       font-size: 0.9rem;
-      z-index: 2;
-      position: relative;
-    }
-    .tagline {
-      margin-bottom: 5px;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-    .background {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 0;
-    }
-    .background img {
-      width: 100%;
-      max-width: 700px;
-      opacity: 0.2;
-      mix-blend-mode: multiply;
+      border-top: 1px solid rgba(255,255,255,0.3);
     }
   </style>
 </head>
 <body>
-  <!-- Background Illustration -->
-  <div class="background">
-    <img src="bear-octopus-final-optimized.jpg" alt="Bear vs Octopus Fighting" />
-  </div>
+
+  <!-- Kimora Co. Header -->
+  <header>
+    <h1>Kimora Co.</h1>
+  </header>
 
   <!-- Hero Section -->
-  <header>
-    <h1>Creatine + Electrolytes.<br> Built for Athletes Who Push Limits.</h1>
+  <section class="hero">
+    <h2>Creatine + Electrolytes.<br>Built for Athletes Who Push Limits.</h2>
     <p>
-      Delicious, easy to drink, and performance-driven — Kimora makes daily creatine effortless so you can stay on top of your training and ahead of the rest.
+      Delicious, easy to drink, and performance-driven — Kimora makes daily creatine effortless 
+      so you can stay on top of your training and ahead of the rest.
     </p>
 
     <!-- Email Capture Form -->
@@ -123,32 +98,30 @@
       <input type="email" name="email" placeholder="Enter your email" required>
       <button type="submit">Join the Waitlist</button>
     </form>
+    <p style="font-size: 0.9rem; margin-top: 10px;">Drop your email and we’ll let you know the second Kimora goes live.</p>
+  </section>
 
-    <p style="font-size: 0.8rem; color: #ffe4b5;">
-      Drop your email and we’ll let you know the second Kimora goes live.
-    </p>
-  </header>
-
-  <!-- Countdown Timer Placeholder -->
+  <!-- Countdown -->
   <div class="countdown">
     <div>
-      <p style="font-size: 2rem; font-weight: bold;">30</p>
+      <h3>30</h3>
       <p>Days</p>
     </div>
     <div>
-      <p style="font-size: 2rem; font-weight: bold;">12</p>
+      <h3>12</h3>
       <p>Hours</p>
     </div>
     <div>
-      <p style="font-size: 2rem; font-weight: bold;">45</p>
+      <h3>45</h3>
       <p>Minutes</p>
     </div>
   </div>
 
   <!-- Footer -->
   <footer>
-    <div class="tagline">Out-train. Out-smart. Out-last.</div>
+    <p><strong>OUT-TRAIN. OUT-SMART. OUT-LAST.</strong></p>
     <p>Kimora Co. © 2025</p>
   </footer>
+
 </body>
 </html>
