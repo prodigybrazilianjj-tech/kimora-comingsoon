@@ -1,150 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kimora Co. — Coming Soon</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kimora Co.</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(180deg, #fda085, #f6d365);
-      color: white;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #ff9966, #ff5e62);
+      color: #fff;
       text-align: center;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      background-image: url('bear-octopus-final.png'); /* <-- your image */
+      background-size: contain;   /* fit inside screen */
+      background-repeat: no-repeat;
+      background-position: center 180px; /* adjust vertical placement */
+      background-attachment: fixed;
     }
-    header h1 {
-      font-size: 3rem;
+
+    header {
+      font-size: 4em;
       font-weight: 900;
-      margin: 30px 0 10px 0;
+      letter-spacing: 8px;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      background: linear-gradient(90deg, #fff, #ffe0b2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      margin-top: 40px;
+      color: gold;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
     }
-    .hero h2 {
-      font-size: 2rem;
-      font-weight: 800;
-      margin: 10px 0;
+
+    h1 {
+      margin-top: 40px;
+      font-size: 2.5em;
     }
-    .hero p {
-      font-size: 1.1rem;
+
+    p {
+      font-size: 1.2em;
+      margin: 20px auto;
       max-width: 600px;
-      margin: 0 auto 20px;
     }
+
     form {
-      margin-top: 15px;
+      margin: 30px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
     }
+
     input[type="email"] {
-      padding: 12px;
-      border-radius: 8px;
+      padding: 10px;
+      border-radius: 5px;
       border: none;
-      width: 60%;
-      max-width: 300px;
+      width: 250px;
     }
+
     button {
-      padding: 12px 20px;
-      margin-left: 10px;
+      padding: 10px 20px;
       border: none;
-      border-radius: 8px;
+      border-radius: 5px;
       background-color: #d35400;
-      color: white;
+      color: #fff;
       font-weight: bold;
       cursor: pointer;
     }
+
+    button:hover {
+      background-color: #e67e22;
+    }
+
     .countdown {
-      margin: 30px 0;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
+      margin-top: 40px;
+      font-size: 2em;
+      font-weight: bold;
     }
-    .countdown div {
-      text-align: center;
-    }
-    .countdown p {
-      margin: 5px 0;
-    }
+
     footer {
+      margin-top: 60px;
       padding: 20px;
-      font-size: 0.9rem;
-      border-top: 1px solid rgba(255,255,255,0.3);
+      font-size: 0.9em;
+      color: #eee;
     }
   </style>
 </head>
 <body>
+  <header>KIMORA CO.</header>
 
-  <!-- Kimora Co. Header -->
-  <header style="text-align:center; padding: 40px 0 20px 0; position: relative;">
-  <h1 style="
-    font-size: 80px; 
-    font-weight: 900; 
-    letter-spacing: 6px; 
-    text-transform: uppercase;
-    background: linear-gradient(90deg, #d4af37, #fff8dc, #b8860b, #ffd700, #b8860b);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 5s ease-in-out infinite;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
-  ">
-    KIMORA CO.
-  </h1>
-</header>
+  <h1>Creatine + Electrolytes.<br>Built for Athletes Who Push Limits.</h1>
+  <p>Delicious, easy to drink, and performance-driven — Kimora makes daily creatine effortless so you can stay on top of your training and ahead of the rest.</p>
 
-<style>
-@keyframes shine {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-</style>
+  <form action="https://formspree.io/f/xovnojzg" method="POST">
+    <input type="email" name="email" placeholder="Enter your email" required>
+    <button type="submit">Join the Waitlist</button>
+  </form>
 
-  
+  <p style="margin-top: -10px; font-size: 0.9em;">Drop your email and we'll let you know the second Kimora goes live.</p>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h2>Creatine + Electrolytes.<br>Built for Athletes Who Push Limits.</h2>
-    <p>
-      Delicious, easy to drink, and performance-driven — Kimora makes daily creatine effortless 
-      so you can stay on top of your training and ahead of the rest.
-    </p>
-
-    <!-- Email Capture Form -->
-    <form action="https://formspree.io/f/xovnojzg" method="POST">
-      <input type="email" name="email" placeholder="Enter your email" required>
-      <button type="submit">Join the Waitlist</button>
-    </form>
-    <p style="font-size: 0.9rem; margin-top: 10px;">Drop your email and we’ll let you know the second Kimora goes live.</p>
-  </section>
-
-  <!-- Countdown -->
   <div class="countdown">
-    <div>
-      <h3>30</h3>
-      <p>Days</p>
-    </div>
-    <div>
-      <h3>12</h3>
-      <p>Hours</p>
-    </div>
-    <div>
-      <h3>45</h3>
-      <p>Minutes</p>
-    </div>
+    <span>30</span> Days 
+    <span>12</span> Hours 
+    <span>45</span> Minutes
   </div>
 
-  <!-- Footer -->
   <footer>
-    <p><strong>OUT-TRAIN. OUT-SMART. OUT-LAST.</strong></p>
-    <p>Kimora Co. © 2025</p>
+    OUT-TRAIN. OUT-SMART. OUT-LAST.<br>
+    Kimora Co. © 2025
   </footer>
-
 </body>
 </html>
