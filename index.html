@@ -81,21 +81,31 @@
 <body>
 
   <!-- Kimora Co. Header -->
-  <header>
+  <header style="text-align:center; padding: 40px 0 20px 0; position: relative;">
   <h1 style="
-    font-size: 4.5rem; 
+    font-size: 80px; 
     font-weight: 900; 
-    margin: 40px 0 20px 0; 
-    text-transform: uppercase; 
-    letter-spacing: 4px; 
-    background: linear-gradient(90deg, #fff, #ffd54f, #ff9800);
+    letter-spacing: 6px; 
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #d4af37, #fff8dc, #b8860b, #ffd700, #b8860b);
+    background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    animation: shine 5s ease-in-out infinite;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
   ">
-    Kimora Co.
+    KIMORA CO.
   </h1>
 </header>
+
+<style>
+@keyframes shine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+</style>
+
   
 
   <!-- Hero Section -->
