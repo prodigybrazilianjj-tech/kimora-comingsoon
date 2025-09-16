@@ -8,13 +8,13 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #ff9966, #ff5e62);
       color: #fff;
       text-align: center;
-      background-image: url('bear-octopus-final.png'); /* <-- your image */
-      background-size: contain;   /* fit inside screen */
-      background-repeat: no-repeat;
-      background-position: center 180px; /* adjust vertical placement */
+      background: linear-gradient(to bottom, #ff9966, #ff5e62);
+      background-image: url('bear-octopus-final.png'), linear-gradient(to bottom, #ff9966, #ff5e62);
+      background-size: contain, cover;
+      background-repeat: no-repeat, no-repeat;
+      background-position: center 200px, center;
       background-attachment: fixed;
     }
 
@@ -25,18 +25,18 @@
       text-transform: uppercase;
       margin-top: 40px;
       color: gold;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+      text-shadow: 3px 3px 12px rgba(0,0,0,0.6);
     }
 
     h1 {
-      margin-top: 40px;
+      margin-top: 60px;
       font-size: 2.5em;
     }
 
     p {
       font-size: 1.2em;
       margin: 20px auto;
-      max-width: 600px;
+      max-width: 650px;
     }
 
     form {
@@ -48,20 +48,21 @@
     }
 
     input[type="email"] {
-      padding: 10px;
+      padding: 12px;
       border-radius: 5px;
       border: none;
-      width: 250px;
+      width: 260px;
     }
 
     button {
-      padding: 10px 20px;
+      padding: 12px 24px;
       border: none;
       border-radius: 5px;
       background-color: #d35400;
       color: #fff;
       font-weight: bold;
       cursor: pointer;
+      transition: background 0.2s ease;
     }
 
     button:hover {
@@ -69,13 +70,13 @@
     }
 
     .countdown {
-      margin-top: 40px;
+      margin-top: 50px;
       font-size: 2em;
       font-weight: bold;
     }
 
     footer {
-      margin-top: 60px;
+      margin-top: 80px;
       padding: 20px;
       font-size: 0.9em;
       color: #eee;
@@ -86,24 +87,4 @@
   <header>KIMORA CO.</header>
 
   <h1>Creatine + Electrolytes.<br>Built for Athletes Who Push Limits.</h1>
-  <p>Delicious, easy to drink, and performance-driven — Kimora makes daily creatine effortless so you can stay on top of your training and ahead of the rest.</p>
-
-  <form action="https://formspree.io/f/xovnojzg" method="POST">
-    <input type="email" name="email" placeholder="Enter your email" required>
-    <button type="submit">Join the Waitlist</button>
-  </form>
-
-  <p style="margin-top: -10px; font-size: 0.9em;">Drop your email and we'll let you know the second Kimora goes live.</p>
-
-  <div class="countdown">
-    <span>30</span> Days 
-    <span>12</span> Hours 
-    <span>45</span> Minutes
-  </div>
-
-  <footer>
-    OUT-TRAIN. OUT-SMART. OUT-LAST.<br>
-    Kimora Co. © 2025
-  </footer>
-</body>
-</html>
+  <p>Delicious, easy to drink, and performa
