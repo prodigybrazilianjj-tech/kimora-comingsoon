@@ -35,7 +35,17 @@
 
       /* Poster as immersive background */
       background: url('poster-art.png') center 20%/cover no-repeat fixed;
-      background-color:#2a1208; /* fallback color that matches poster */
+      background-color:#2a1208; /* fallback */
+    }
+
+    /* Smart Fallbacks */
+    @media (max-aspect-ratio: 3/4) {
+      /* Tall / portrait screens */
+      body { background-position:center top; background-size:contain; background-repeat:no-repeat; }
+    }
+    @media (min-aspect-ratio: 21/9) {
+      /* Ultrawide screens */
+      body { background-position:center top; background-size:contain; background-repeat:no-repeat; }
     }
 
     /* Readability gradient overlay */
@@ -144,7 +154,7 @@
       .lead{ padding:0 4px }
       .count{ margin-bottom:6px }
       .coming{ font-size: clamp(28px,9vw,72px) }
-      /* slightly stronger overlay for readability on phones */
+      /* stronger overlay for readability */
       .overlay{ background: linear-gradient(180deg, rgba(0,0,0,.52), rgba(0,0,0,.30) 34%, rgba(0,0,0,.18) 66%); }
     }
 
