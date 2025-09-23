@@ -8,8 +8,8 @@
   <!-- SEO -->
   <meta name="description" content="Kimora — Creatine + Electrolytes. Daily. Delicious & easy to drink. Join the waitlist.">
   <meta property="og:title" content="KIMORA — Creatine + Electrolytes (Daily)">
-  <meta property="og:description" content="Grow Stronger. Think Sharper. Join the waitlist.">
-  <meta property="og:image" content="https://kimoraco.com/poster-art.jpg">
+  <meta property="og:description" content="Daily creatine made delicious and easy. Join the waitlist.">
+  <meta property="og:image" content="kimora-strawberry-guava-packaging.png">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
 
@@ -20,17 +20,9 @@
 
   <style>
     :root{
-      /* Core brand */
       --cream:#f4e5c3; --cream-dim:#e8d7b3;
-      --ink:#1f120d; 
       --teal:#0b5952; --teal-deep:#073f3a;
-
-      /* Flavor tints (match pouches) */
-      --sg:#c85b54;        /* Strawberry Guava */
-      --ly:#d5c060;        /* Lemon Yuzu (muted golden) */
-      --rd:#c6537b;        /* Raspberry Dragonfruit (pastel-magenta) */
     }
-
     *{box-sizing:border-box}
     html,body{margin:0;height:100%}
     body{
@@ -40,243 +32,109 @@
       text-align:center;
       position:relative;
       overflow-x:hidden;
-      background:#2a1208;
-      /* Optional hero poster behind content (replace if desired) */
-      background-image: radial-gradient(1200px 600px at 50% -20%, rgba(255,255,255,.06), transparent 60%),
-                        radial-gradient(900px 500px at 0% 0%, rgba(255,255,255,.04), transparent 70%);
+      background-color:#2a1208;
     }
 
     .wrap{
-      position:relative; z-index:1;
-      width:min(1100px,92vw);
+      width:min(980px,92vw);
       margin:0 auto;
-      padding:42px 16px 84px;
-      display:flex; flex-direction:column; gap:28px;
+      padding:40px 16px 72px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      gap:22px;
     }
 
-    /* Brand */
     .brand h1{
       margin:0;
       font-family:"Cinzel", serif;
       font-weight:900;
       letter-spacing:.12em;
-      font-size: clamp(52px, 8.5vw, 120px);
+      font-size: clamp(54px, 9vw, 120px);
       text-shadow: 0 6px 0 rgba(0,0,0,.35);
     }
-
-    /* New product badge directly under wordmark */
-    .badge{
-      margin:8px auto 2px;
-      display:inline-flex; align-items:center; gap:10px;
-      padding:8px 14px;
-      border:2px solid rgba(244,229,195,.9);
-      color:var(--cream);
-      border-radius:999px;
-      font-weight:800;
-      letter-spacing:.12em;
-      font-size: clamp(11px,1.8vw,14px);
-      background:rgba(0,0,0,.22);
-      text-transform:uppercase;
-    }
-
-    .tagline{
+    .subhead{
       margin-top:8px;
       font-family:"Cinzel", serif;
-      font-weight:900;
-      letter-spacing:.14em;
+      font-weight:700;
+      letter-spacing:.18em;
       font-size: clamp(16px,2.5vw,28px);
-      opacity:.98;
     }
 
     .lead{
-      max-width:760px; margin:8px auto 6px;
+      max-width:760px; margin:10px auto 6px;
       color:var(--cream-dim);
       font-size: clamp(15px,2.1vw,19px);
-      line-height:1.6;
-      text-shadow: 0 2px 6px rgba(0,0,0,.25);
+      line-height:1.55;
     }
 
-    /* Hero: three pouches */
-    .hero{
-      margin-top:8px;
-      display:grid; grid-template-columns: 1fr; gap:18px;
-      justify-items:center;
-    }
-    .pouches{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(180px, 1fr));
-      gap:18px;
-      align-items:end; justify-items:center;
-    }
-    .pouch{
-      width:min(320px, 28vw);
-      aspect-ratio: 3/4.2;
-      border-radius:18px;
-      background:rgba(255,255,255,.03);
-      box-shadow: 0 18px 50px rgba(0,0,0,.35);
-      display:flex; align-items:center; justify-content:center;
-      padding:12px;
-    }
-    .pouch img{ width:100%; height:auto; display:block; }
-
-    /* Form */
-    .row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:14px 0}
+    .row{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:10px 0}
     input[type=email]{
-      padding:14px 16px; border:none; border-radius:999px; width:min(380px,72vw);
+      padding:14px 16px; border:none; border-radius:999px; width:min(360px,72vw);
       color:#111; background:#fff; box-shadow:0 10px 28px rgba(0,0,0,.28);
-      border:2px solid rgba(244,229,195,.16); font-size:16px;
+      font-size:16px;
     }
     input[type=email]::placeholder{ color:#666 }
-    input[type=email]:focus{ outline:none; border-color:rgba(244,229,195,.45) }
+    input[type=email]:focus{ outline:none; }
 
     .cta{
       padding:14px 22px; border:none; border-radius:999px;
       background:var(--teal); color:#eaf7f6; font-weight:900; letter-spacing:.02em; font-size:16px;
       box-shadow:0 12px 30px rgba(11,89,82,.40); cursor:pointer;
-      transition:filter .2s, box-shadow .2s, transform .06s;
       font-family:"Cinzel", serif;
     }
-    .cta:hover{ filter:brightness(1.06); box-shadow:0 14px 38px rgba(11,89,82,.5) }
-    .cta:active{ transform:scale(.98) }
-    .tiny{font-size:12px; color:#f1ddba; margin-top:6px}
 
-    /* Benefits row (icons match packaging order) */
-    .benefits{
-      margin-top:8px;
-      display:flex; gap:22px; justify-content:center; flex-wrap:wrap;
+    .product-gallery{
+      display:flex;
+      gap:20px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:40px;
     }
-    .benefit{
-      display:grid; gap:8px; justify-items:center; min-width:120px;
+    .product-gallery img{
+      width:280px;
+      border-radius:16px;
+      box-shadow:0 6px 18px rgba(0,0,0,.45);
+      transition:transform .2s;
     }
-    .benefit svg{ width:38px; height:38px; stroke:var(--cream); }
-    .benefit .lab{ text-transform:uppercase; letter-spacing:.14em; font-weight:800; font-size:12px; color:var(--cream-dim) }
-
-    /* Flavor chips */
-    .flavors{
-      margin-top:8px;
-      display:flex; gap:10px; justify-content:center; flex-wrap:wrap;
-    }
-    .chip{
-      padding:8px 12px; border-radius:999px; font-weight:800; letter-spacing:.06em;
-      border:1px solid rgba(244,229,195,.28); color:var(--cream);
-      background:rgba(0,0,0,.18);
+    .product-gallery img:hover{
+      transform:scale(1.05);
     }
 
-    /* Footer */
-    hr.rule{
-      border:none; height:1px; width:100%;
-      background:linear-gradient(90deg,transparent,rgba(244,229,195,.35),transparent);
-      margin:16px 0 0;
-    }
-    .coming{ font-family:"Cinzel", serif; font-weight:900; letter-spacing:.12em; font-size: clamp(28px,7vw,78px); text-shadow:0 4px 0 rgba(0,0,0,.35); margin-top: 24px; }
-    footer{ margin-top:8px; }
+    footer{ margin-top:28px; }
     .tag{ text-transform:uppercase; letter-spacing:.14em; font-weight:900; }
     .copy{ color:#f1ddba; font-size:12px; margin-top:6px }
-
-    /* Mobile */
-    @media (max-width:720px){
-      .pouch{ width:min(280px, 80vw) }
-      .pouches{ grid-template-columns: 1fr; }
-    }
-
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
 </head>
 <body>
   <main class="wrap">
-    <!-- Wordmark + Product badge + Tagline -->
-    <header class="brand" aria-label="Kimora">
+    <header class="brand">
       <h1>KIMORA</h1>
-      <div class="badge">CREATINE + ELECTROLYTES</div>
-      <div class="tagline">GROW STRONGER. THINK SHARPER.</div>
+      <div class="subhead">CREATINE + ELECTROLYTES · DAILY</div>
     </header>
 
-    <!-- Value prop -->
     <p class="lead">
-      Delicious, easy to drink, and performance-driven — Kimora makes daily creatine effortless
-      so you can keep building muscle, recover faster, and stay mentally sharp.
+      Grow Stronger. Think Sharper. <br>
+      Daily creatine made delicious and easy — Kimora makes performance effortless.
     </p>
 
-    <!-- Hero: 3 final pouches (replace src paths with your exported images) -->
-    <section class="hero" aria-label="Product lineup">
-      <div class="pouches">
-        <div class="pouch" style="background:linear-gradient(180deg, rgba(0,0,0,.06), transparent), var(--sg);">
-          <img src="pouch-strawberry-guava.png" alt="Kimora — Strawberry Guava pouch" />
-        </div>
-        <div class="pouch" style="background:linear-gradient(180deg, rgba(0,0,0,.06), transparent), var(--ly);">
-          <img src="pouch-lemon-yuzu.png" alt="Kimora — Lemon Yuzu pouch" />
-        </div>
-        <div class="pouch" style="background:linear-gradient(180deg, rgba(0,0,0,.06), transparent), var(--rd);">
-          <img src="pouch-raspberry-dragonfruit.png" alt="Kimora — Raspberry Dragonfruit pouch" />
-        </div>
-      </div>
-    </section>
-
-    <!-- Email Form -->
     <form class="row" action="https://formspree.io/f/xovnojzg" method="POST">
-      <label for="email" class="sr-only">Email address</label>
       <input id="email" type="email" name="email" placeholder="Enter your email" required autocomplete="email" />
       <button class="cta" type="submit">Join the Waitlist</button>
     </form>
-    <p id="thanks" class="tiny" style="display:none;">Thanks! You’re on the waitlist. 💪</p>
 
-    <!-- Benefits (order matches packaging: Cognition • Recovery • Muscle) -->
-    <div class="benefits" aria-label="Benefits">
-      <!-- Brain / Cognition -->
-      <div class="benefit">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M15 8a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3M9 8a3 3 0 0 0-3 3v2a3 3 0 0 0 3 3M9 8a3 3 0 1 1 0-6m6 6a3 3 0 1 0 0-6M9 16v5m6-5v5"/>
-        </svg>
-        <div class="lab">Cognition</div>
-      </div>
-      <!-- Battery / Recovery -->
-      <div class="benefit">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <rect x="2" y="7" width="18" height="10" rx="2"></rect>
-          <path d="M22 11v2"></path>
-          <path d="M11 9l-2 4h4l-2 4"></path>
-        </svg>
-        <div class="lab">Recovery</div>
-      </div>
-      <!-- Arm / Muscle -->
-      <div class="benefit">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M7 14c1.5-2 3-3 5-3h2l2 2c1 1 1 3-1 4-2 1-6 1-8-3z"></path>
-          <path d="M6 13s-1 3 2 5 8 2 10-1 0-6-2-7"></path>
-        </svg>
-        <div class="lab">Muscle</div>
-      </div>
+    <!-- Product images -->
+    <div class="product-gallery">
+      <img src="kimora-strawberry-guava-packaging.png" alt="Kimora Strawberry Guava creatine + electrolytes supplement packaging">
+      <img src="kimora-lemon-yuzu-packaging.png" alt="Kimora Lemon Yuzu creatine + electrolytes supplement packaging">
+      <img src="kimora-raspberry-dragonfruit-packaging.png" alt="Kimora Raspberry Dragonfruit creatine + electrolytes supplement packaging">
     </div>
-
-    <!-- Flavor labels -->
-    <div class="flavors" aria-label="Flavors">
-      <span class="chip" style="background:linear-gradient(180deg, rgba(0,0,0,.16), rgba(0,0,0,.28)); border-color:rgba(200,91,84,.55)">Strawberry Guava</span>
-      <span class="chip" style="background:linear-gradient(180deg, rgba(0,0,0,.16), rgba(0,0,0,.28)); border-color:rgba(213,192,96,.55)">Lemon Yuzu</span>
-      <span class="chip" style="background:linear-gradient(180deg, rgba(0,0,0,.16), rgba(0,0,0,.28)); border-color:rgba(198,83,123,.55)">Raspberry Dragonfruit</span>
-    </div>
-
-    <hr class="rule" />
-    <div class="coming" aria-label="Coming soon">COMING SOON</div>
 
     <footer>
       <div class="tag">OUT-TRAIN. OUT-SMART. OUT-LAST.</div>
       <div class="copy">Kimora Co. © 2025</div>
     </footer>
   </main>
-
-  <!-- Inline thanks (no redirect) -->
-  <script>
-    const form = document.querySelector('form');
-    const thanks = document.getElementById('thanks');
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      try{
-        const res = await fetch(form.action, { method:'POST', body:data, headers:{ 'Accept':'application/json' }});
-        if(res.ok){ form.reset(); thanks.style.display='block'; }
-        else{ alert('Something went wrong. Please try again.'); }
-      }catch{ alert('Network error. Please try again.'); }
-    });
-  </script>
 </body>
 </html>
