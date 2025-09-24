@@ -28,6 +28,7 @@
       --accent:#0b5952;    /* teal button */
       --accent-2:#0e7a71;  /* hover */
       --ring: rgba(255,255,255,.12);
+      --success:#1faa8a;   /* toast success green */
     }
 
     *{box-sizing:border-box}
@@ -48,11 +49,7 @@
 
     /* BRAND HEADER — perfectly centered stack */
     .brand{
-      display:flex;
-      flex-direction:column;
-      align-items:center;        /* centers every child horizontally */
-      gap:10px;
-      width:100%;
+      display:flex; flex-direction:column; align-items:center; gap:10px; width:100%;
     }
     .brand h1{
       margin:10px 0 0;
@@ -63,68 +60,66 @@
       text-shadow: 0 10px 30px rgba(0,0,0,.55);
       text-align:center;
     }
-    /* Centered pill with intrinsic width */
     .badge{
       display:inline-flex; align-items:center; justify-content:center;
-      padding:8px 14px;
-      border:2px solid var(--ink);
-      border-radius:999px;
-      font-weight:800;
-      letter-spacing:.14em;
-      font-size:12px;
-      text-transform:uppercase;
-      width:max-content;                 /* shrink to content */
-      margin-inline:auto;                /* center horizontally */
+      padding:8px 14px; border:2px solid var(--ink); border-radius:999px;
+      font-weight:800; letter-spacing:.14em; font-size:12px; text-transform:uppercase;
+      width:max-content; margin-inline:auto;
     }
     .tagline{
-      font-family:"Bebas Neue", sans-serif;
-      letter-spacing:.12em;
-      font-size: clamp(20px,3.2vw,34px);
-      text-align:center;
+      font-family:"Bebas Neue", sans-serif; letter-spacing:.12em;
+      font-size: clamp(20px,3.2vw,34px); text-align:center;
     }
 
     .lead{
-      max-width:800px; text-align:center;
-      color:var(--ink-dim);
-      font-size: clamp(15px,2vw,18px);
-      line-height:1.6; margin-top:6px;
+      max-width:800px; text-align:center; color:var(--ink-dim);
+      font-size: clamp(15px,2vw,18px); line-height:1.6; margin-top:6px;
     }
 
     /* FORM (aligned) */
     .row{
+      position:relative;
       display:flex; gap:12px; justify-content:center; flex-wrap:wrap;
-      align-items:center;               /* vertical centering */
-      margin:10px 0 6px;
+      align-items:center; margin:10px 0 6px;
     }
     input[type=email], .cta{
-      height:52px;                      /* same height */
-      line-height:52px;
-      border-radius:999px;
+      height:52px; line-height:52px; border-radius:999px;
     }
     input[type=email]{
       padding:0 16px; border:none; width:min(380px,72vw);
-      color:#0a0a0a; background:#fff;
-      box-shadow:0 10px 20px rgba(0,0,0,.45);
+      color:#0a0a0a; background:#fff; box-shadow:0 10px 20px rgba(0,0,0,.45);
       font-size:16px; outline:2px solid transparent;
     }
     input[type=email]:focus{ outline:2px solid var(--ring) }
-
     .cta{
-      padding:0 22px; border:none;
-      background:var(--accent); color:#eaf7f6; font-weight:900;
+      padding:0 22px; border:none; background:var(--accent); color:#eaf7f6; font-weight:900;
       box-shadow:0 12px 34px rgba(11,89,82,.45); cursor:pointer; transition:.18s ease;
       font-family:"Bebas Neue", sans-serif; font-size:20px; letter-spacing:.12em;
     }
     .cta:hover{ background:var(--accent-2); transform:translateY(-1px) }
-    .tiny{font-size:12px; color:var(--ink-dim); margin-top:6px}
+    .cta[disabled]{ opacity:.7; cursor:not-allowed }
+
+    /* SUCCESS TOAST */
+    .toast{
+      position:absolute; top:-64px; left:50%; transform:translateX(-50%) translateY(-10px);
+      background:linear-gradient(180deg, rgba(31,170,138,.18), rgba(31,170,138,.10));
+      color:var(--ink); border:1px solid rgba(31,170,138,.45);
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
+      border-radius:12px; padding:10px 14px; font-weight:700; letter-spacing:.02em;
+      display:flex; align-items:center; gap:10px; opacity:0; pointer-events:none;
+      backdrop-filter: blur(4px);
+    }
+    .toast svg{ flex:0 0 18px }
+    .toast.show{ animation: toast-in .35s ease-out forwards }
+    .toast.hide{ animation: toast-out .25s ease-in forwards }
+    @keyframes toast-in { from{opacity:0; transform:translateX(-50%) translateY(-10px)} to{opacity:1; transform:translateX(-50%) translateY(0)} }
+    @keyframes toast-out{ from{opacity:1; transform:translateX(-50%) translateY(0)} to{opacity:0; transform:translateX(-50%) translateY(-10px)} }
 
     /* PRODUCT GALLERY — uniform alignment */
     .product-gallery{
       display:grid;
       grid-template-columns: repeat(3, minmax(260px, 1fr));
-      gap:22px; justify-items:center; align-items:stretch;
-      margin-top:28px;
-      width:100%;
+      gap:22px; justify-items:center; align-items:stretch; margin-top:28px; width:100%;
     }
     .card{
       width:min(340px, 30vw);
@@ -135,19 +130,11 @@
       transition:transform .18s ease, box-shadow .18s ease;
     }
     .card:hover{ transform:translateY(-3px); box-shadow:0 24px 60px rgba(0,0,0,.55) }
-
-    /* Keeps all pouches same visual size */
     .imgbox{
-      aspect-ratio: 3 / 4.2;
-      width:100%;
-      background:#fff;
-      border-radius:12px;
-      display:flex; align-items:center; justify-content:center;
-      overflow:hidden;
+      aspect-ratio: 3 / 4.2; width:100%; background:#fff; border-radius:12px;
+      display:flex; align-items:center; justify-content:center; overflow:hidden;
     }
-    .imgbox img{
-      width:100%; height:100%; object-fit:contain; display:block;
-    }
+    .imgbox img{ width:100%; height:100%; object-fit:contain; display:block; }
 
     footer{ margin-top:34px; text-align:center }
     .tag{ text-transform:uppercase; letter-spacing:.16em; font-weight:900; color:var(--ink-dim) }
@@ -176,12 +163,20 @@
       Daily creatine made delicious and easy — performance you can feel in the gym and in your head.
     </p>
 
-    <form class="row" action="https://formspree.io/f/xovnojzg" method="POST">
+    <!-- Email Form + Toast -->
+    <form class="row" action="https://formspree.io/f/xovnojzg" method="POST" novalidate>
+      <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">
+        <!-- check icon -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 6L9 17l-5-5"/>
+        </svg>
+        <span>Thanks! You’re on the waitlist.</span>
+      </div>
+
       <label for="email" class="sr-only">Email address</label>
       <input id="email" type="email" name="email" placeholder="Enter your email" required autocomplete="email" />
-      <button class="cta" type="submit">JOIN THE WAITLIST</button>
+      <button class="cta" type="submit" id="cta">JOIN THE WAITLIST</button>
     </form>
-    <p id="thanks" class="tiny" style="display:none;">Thanks! You’re on the waitlist. 💪</p>
 
     <!-- Final packaging images -->
     <section class="product-gallery" aria-label="Flavors">
@@ -208,18 +203,39 @@
     </footer>
   </main>
 
-  <!-- Inline thanks (no redirect) -->
+  <!-- Inline thanks (toast), no redirect -->
   <script>
     const form = document.querySelector('form');
-    const thanks = document.getElementById('thanks');
+    const toast = document.getElementById('toast');
+    const cta = document.getElementById('cta');
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const data = new FormData(form);
+      cta.disabled = true;
+      cta.textContent = 'ADDING…';
       try{
         const res = await fetch(form.action, { method:'POST', body:data, headers:{ 'Accept':'application/json' }});
-        if(res.ok){ form.reset(); thanks.style.display='block'; }
-        else{ alert('Something went wrong. Please try again.'); }
-      }catch{ alert('Network error. Please try again.'); }
+        if(res.ok){
+          form.reset();
+          // show toast
+          toast.classList.remove('hide');
+          toast.classList.add('show');
+          // revert button
+          cta.textContent = 'JOIN THE WAITLIST';
+          cta.disabled = false;
+          // auto-hide after 4s
+          setTimeout(()=>{ toast.classList.remove('show'); toast.classList.add('hide'); }, 4000);
+        }else{
+          alert('Something went wrong. Please try again.');
+          cta.textContent = 'JOIN THE WAITLIST';
+          cta.disabled = false;
+        }
+      }catch{
+        alert('Network error. Please try again.');
+        cta.textContent = 'JOIN THE WAITLIST';
+        cta.disabled = false;
+      }
     });
   </script>
 </body>
