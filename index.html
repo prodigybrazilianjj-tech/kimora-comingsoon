@@ -20,8 +20,13 @@
 
   <style>
     :root{
-      --bg:#0d0d0f; --panel:#141416; --ink:#fcf7ea; --ink-dim:#d8d0b8;
-      --accent:#0b5952; --accent-2:#0e7a71; --ring: rgba(255,255,255,.12);
+      --bg:#0d0d0f;
+      --panel:#141416;
+      --ink:#fcf7ea;
+      --ink-dim:#d8d0b8;
+      --accent:#0b5952;
+      --accent-2:#0e7a71;
+      --ring: rgba(255,255,255,.12);
       --success:#1faa8a;
     }
 
@@ -32,7 +37,6 @@
       color:var(--ink);
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-      overflow-x:hidden;
     }
 
     .wrap{
@@ -42,7 +46,6 @@
       display:flex; flex-direction:column; align-items:center; gap:20px;
     }
 
-    /* BRAND HEADER */
     .brand{
       display:flex; flex-direction:column; align-items:center; gap:10px; width:100%;
     }
@@ -71,15 +74,21 @@
       font-size: clamp(15px,2vw,18px); line-height:1.6; margin-top:6px;
     }
 
-    /* FORM */
+    /* Benefits row */
+    .points { margin:16px auto 6px; display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+    .pt { background:rgba(255,255,255,.03); border:1px solid var(--ring); border-radius:12px; padding:10px 12px; font-weight:600; text-align:center; }
+    .sup { font-size:.8em; vertical-align:super; margin-left:2px; opacity:.85; }
+    .fine-note { margin:2px auto 0; max-width:880px; text-align:center; color:var(--ink-dim); font-size:11px; opacity:.7; }
+    .fine-note .dot { margin:0 8px; opacity:.5; }
+    @media (max-width:900px){ .points{ grid-template-columns:1fr; } }
+
+    /* Form */
     .row{
       position:relative;
       display:flex; gap:12px; justify-content:center; flex-wrap:wrap;
       align-items:center; margin:10px 0 6px;
     }
-    input[type=email], .cta{
-      height:52px; line-height:52px; border-radius:999px;
-    }
+    input[type=email], .cta{ height:52px; line-height:52px; border-radius:999px; }
     input[type=email]{
       padding:0 16px; border:none; width:min(380px,72vw);
       color:#0a0a0a; background:#fff; box-shadow:0 10px 20px rgba(0,0,0,.45);
@@ -94,13 +103,13 @@
     .cta:hover{ background:var(--accent-2); transform:translateY(-1px) }
     .cta[disabled]{ opacity:.7; cursor:not-allowed }
 
-    /* TOAST */
+    /* Success toast */
     .toast{
       position:absolute; top:-64px; left:50%; transform:translateX(-50%) translateY(-10px);
       background:linear-gradient(180deg, rgba(31,170,138,.18), rgba(31,170,138,.10));
       color:var(--ink); border:1px solid rgba(31,170,138,.45);
       box-shadow:0 10px 30px rgba(0,0,0,.35);
-      border-radius:12px; padding:10px 14px; font-weight:700; letter-spacing:.02em;
+      border-radius:12px; padding:10px 14px; font-weight:700;
       display:flex; align-items:center; gap:10px; opacity:0; pointer-events:none;
       backdrop-filter: blur(4px);
     }
@@ -110,18 +119,11 @@
     @keyframes toast-in { from{opacity:0; transform:translateX(-50%) translateY(-10px)} to{opacity:1; transform:translateX(-50%) translateY(0)} }
     @keyframes toast-out{ from{opacity:1; transform:translateX(-50%) translateY(0)} to{opacity:0; transform:translateX(-50%) translateY(-10px)} }
 
-    /* Reset default figure margins (mobile shift fix) */
-    figure { margin: 0; }
-
-    /* PRODUCT GALLERY */
+    /* Gallery */
     .product-gallery{
       display:grid;
       grid-template-columns: repeat(3, minmax(260px, 1fr));
-      gap:22px;
-      width:100%;
-      justify-items:center;
-      justify-content:center;
-      margin-top:28px;
+      gap:22px; justify-items:center; align-items:stretch; margin-top:28px; width:100%;
     }
     .card{
       width:min(340px, 30vw);
@@ -138,60 +140,9 @@
     }
     .imgbox img{ width:100%; height:100%; object-fit:contain; display:block; }
 
-    /* ABOUT SECTION */
-    .about{
-      width:100%; margin-top:46px;
-      padding:24px 18px;
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid var(--ring);
-      border-radius:18px;
-    }
-    .about h2{
-      margin:0 0 10px; text-align:center;
-      font-family:"Bebas Neue", sans-serif; letter-spacing:.10em;
-      font-size: clamp(28px,4.6vw,40px);
-    }
-    .about p{
-      margin:0 auto; max-width:880px; text-align:center;
-      color:var(--ink-dim); line-height:1.7; font-size:16px;
-    }
-
-    /* Benefits row + footnotes (Option 1) */
-    .points{
-      margin:16px auto 6px; max-width:880px;
-      display:grid; grid-template-columns: repeat(3,1fr); gap:10px; text-align:center;
-    }
-    .pt{
-      background:rgba(255,255,255,.03);
-      border:1px solid var(--ring); border-radius:12px; padding:10px 12px;
-      font-weight:600;
-    }
-    .sup{ font-size:.8em; vertical-align:super; margin-left:2px; opacity:.6; }
-    .fine-note{
-      margin:2px auto 0; max-width:880px; text-align:center;
-      color:var(--ink-dim); font-size:10px; opacity:.68;
-      display:flex; gap:8px; justify-content:center; align-items:center;
-    }
-    .fine-note .dot{ opacity:.45; }
-
     footer{ margin-top:34px; text-align:center }
     .tag{ text-transform:uppercase; letter-spacing:.16em; font-weight:900; color:var(--ink-dim) }
     .copy{ color:#d0c8ae; font-size:12px; margin-top:6px }
-
-    @media (max-width: 900px){
-      .product-gallery{ grid-template-columns: repeat(2, minmax(260px, 1fr)); }
-      .points{ grid-template-columns: 1fr; }
-    }
-    @media (max-width: 620px){
-      .product-gallery{
-        grid-template-columns: 1fr;
-        justify-items:center;
-        justify-content:center;
-      }
-      .card{ width:min(420px, 92vw); margin:0 auto; }
-    }
-
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
 </head>
 <body>
@@ -204,6 +155,18 @@
 
     <p class="lead">
       Daily creatine made delicious and easy — performance you can feel in the gym and in your head.
+    </p>
+
+    <!-- Benefits Row -->
+    <div class="points">
+      <div class="pt">Strength<span class="sup">¹</span></div>
+      <div class="pt">Recovery<span class="sup">²</span></div>
+      <div class="pt">Focus<span class="sup">¹</span></div>
+    </div>
+    <p class="fine-note">
+      <span>¹ via creatine</span>
+      <span class="dot">•</span>
+      <span>² via creatine + electrolytes</span>
     </p>
 
     <!-- Email Form + Toast -->
@@ -220,7 +183,7 @@
       <button class="cta" type="submit" id="cta">JOIN THE WAITLIST</button>
     </form>
 
-    <!-- Packaging images -->
+    <!-- Product Gallery -->
     <section class="product-gallery" aria-label="Flavors">
       <figure class="card">
         <div class="imgbox">
@@ -239,35 +202,12 @@
       </figure>
     </section>
 
-    <!-- ABOUT -->
-    <section class="about" aria-labelledby="why-kimora">
-      <h2 id="why-kimora">Why Kimora?</h2>
-      <p>
-        Training is tough. Recovery is tougher. Kimora makes both easier. Powered by creatine — the most studied supplement in sports
-        nutrition — and balanced with essential electrolytes, it helps you build strength, recover faster, and stay sharp. Every scoop
-        gives your body and mind what they need to push harder today and come back stronger tomorrow.
-      </p>
-
-      <!-- Benefits Row with Footnotes -->
-      <div class="points" role="list">
-        <div class="pt" role="listitem">Strength<span class="sup">¹</span></div>
-        <div class="pt" role="listitem">Recovery<span class="sup">²</span></div>
-        <div class="pt" role="listitem">Focus<span class="sup">¹</span></div>
-      </div>
-      <p class="fine-note" aria-label="Benefit notes">
-        <span>¹ via creatine (muscle &amp; brain energy)</span>
-        <span class="dot">•</span>
-        <span>² via electrolytes (hydration)</span>
-      </p>
-    </section>
-
     <footer>
       <div class="tag">OUT-TRAIN. OUT-SMART. OUT-LAST.</div>
       <div class="copy">Kimora Co. © 2025</div>
     </footer>
   </main>
 
-  <!-- Inline thanks (toast), no redirect -->
   <script>
     const form = document.querySelector('form');
     const toast = document.getElementById('toast');
