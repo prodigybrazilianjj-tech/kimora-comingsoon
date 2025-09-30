@@ -42,7 +42,7 @@
       display:flex; flex-direction:column; align-items:center; gap:20px;
     }
 
-    /* BRAND HEADER — perfectly centered stack */
+    /* BRAND HEADER */
     .brand{
       display:flex; flex-direction:column; align-items:center; gap:10px; width:100%;
     }
@@ -71,7 +71,7 @@
       font-size: clamp(15px,2vw,18px); line-height:1.6; margin-top:6px;
     }
 
-    /* FORM (aligned) */
+    /* FORM */
     .row{
       position:relative;
       display:flex; gap:12px; justify-content:center; flex-wrap:wrap;
@@ -94,7 +94,7 @@
     .cta:hover{ background:var(--accent-2); transform:translateY(-1px) }
     .cta[disabled]{ opacity:.7; cursor:not-allowed }
 
-    /* SUCCESS TOAST */
+    /* TOAST */
     .toast{
       position:absolute; top:-64px; left:50%; transform:translateX(-50%) translateY(-10px);
       background:linear-gradient(180deg, rgba(31,170,138,.18), rgba(31,170,138,.10));
@@ -110,17 +110,17 @@
     @keyframes toast-in { from{opacity:0; transform:translateX(-50%) translateY(-10px)} to{opacity:1; transform:translateX(-50%) translateY(0)} }
     @keyframes toast-out{ from{opacity:1; transform:translateX(-50%) translateY(0)} to{opacity:0; transform:translateX(-50%) translateY(-10px)} }
 
-    /* Reset default figure margins that cause right shift on mobile */
+    /* Reset default figure margins (mobile shift fix) */
     figure { margin: 0; }
 
-    /* PRODUCT GALLERY — uniform alignment */
+    /* PRODUCT GALLERY */
     .product-gallery{
       display:grid;
       grid-template-columns: repeat(3, minmax(260px, 1fr));
       gap:22px;
       width:100%;
-      justify-items:center;             /* center items in each cell */
-      justify-content:center;           /* center the grid as a whole */
+      justify-items:center;
+      justify-content:center;
       margin-top:28px;
     }
     .card{
@@ -138,20 +138,49 @@
     }
     .imgbox img{ width:100%; height:100%; object-fit:contain; display:block; }
 
+    /* ABOUT SECTION (new) */
+    .about{
+      width:100%; margin-top:46px;
+      padding:24px 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--ring);
+      border-radius:18px;
+    }
+    .about h2{
+      margin:0 0 10px; text-align:center;
+      font-family:"Bebas Neue", sans-serif; letter-spacing:.10em;
+      font-size: clamp(28px,4.6vw,40px);
+    }
+    .about p{
+      margin:0 auto; max-width:880px; text-align:center;
+      color:var(--ink-dim); line-height:1.7; font-size:16px;
+    }
+    .about .points{
+      margin:16px auto 0; max-width:880px;
+      display:grid; grid-template-columns: repeat(3,1fr); gap:10px;
+      text-align:center;
+    }
+    .about .pt{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--ring); border-radius:12px; padding:10px 12px;
+      font-weight:600;
+    }
+
     footer{ margin-top:34px; text-align:center }
     .tag{ text-transform:uppercase; letter-spacing:.16em; font-weight:900; color:var(--ink-dim) }
     .copy{ color:#d0c8ae; font-size:12px; margin-top:6px }
 
     @media (max-width: 900px){
       .product-gallery{ grid-template-columns: repeat(2, minmax(260px, 1fr)); }
+      .about .points{ grid-template-columns: 1fr; }
     }
     @media (max-width: 620px){
       .product-gallery{
         grid-template-columns: 1fr;
         justify-items:center;
-        justify-content:center;         /* ensure single column is centered */
+        justify-content:center;
       }
-      .card{ width:min(420px, 92vw); margin:0 auto; } /* hard center the card */
+      .card{ width:min(420px, 92vw); margin:0 auto; }
     }
 
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -183,7 +212,7 @@
       <button class="cta" type="submit" id="cta">JOIN THE WAITLIST</button>
     </form>
 
-    <!-- Final packaging images -->
+    <!-- Packaging images -->
     <section class="product-gallery" aria-label="Flavors">
       <figure class="card">
         <div class="imgbox">
@@ -200,6 +229,21 @@
           <img src="kimora-raspberry-dragonfruit-packaging.png" alt="Kimora Raspberry Dragonfruit packaging — creatine + electrolytes">
         </div>
       </figure>
+    </section>
+
+    <!-- ABOUT (new) -->
+    <section class="about" aria-labelledby="why-kimora">
+      <h2 id="why-kimora">Why Kimora?</h2>
+      <p>
+        Training is tough. Recovery is tougher. Kimora makes both easier. Powered by creatine — the most studied supplement in sports
+        nutrition — and balanced with essential electrolytes, it helps you build strength, recover faster, and stay sharp. Every scoop
+        gives your body and mind what they need to push harder today and come back stronger tomorrow.
+      </p>
+      <div class="points" aria-hidden="true">
+        <div class="pt">Strength • Creatine Monohydrate</div>
+        <div class="pt">Recovery • Electrolytes</div>
+        <div class="pt">Focus • Brain Energy Support</div>
+      </div>
     </section>
 
     <footer>
