@@ -37,6 +37,7 @@
       color:var(--ink);
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+      overflow-x:hidden;
     }
 
     .wrap{
@@ -46,6 +47,7 @@
       display:flex; flex-direction:column; align-items:center; gap:20px;
     }
 
+    /* BRAND HEADER */
     .brand{
       display:flex; flex-direction:column; align-items:center; gap:10px; width:100%;
     }
@@ -74,19 +76,35 @@
       font-size: clamp(15px,2vw,18px); line-height:1.6; margin-top:6px;
     }
 
-    /* Benefits row */
-    .points { margin:16px auto 6px; display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
-    .pt { background:rgba(255,255,255,.03); border:1px solid var(--ring); border-radius:12px; padding:10px 12px; font-weight:600; text-align:center; }
-    .sup { font-size:.8em; vertical-align:super; margin-left:2px; opacity:.85; }
-    .fine-note { margin:2px auto 0; max-width:880px; text-align:center; color:var(--ink-dim); font-size:11px; opacity:.7; }
-    .fine-note .dot { margin:0 8px; opacity:.5; }
+    /* Benefits row + footnote */
+    .points{ margin:16px auto 6px; display:grid; grid-template-columns:repeat(3,1fr); gap:10px; max-width:880px; }
+    .pt{ background:rgba(255,255,255,.03); border:1px solid var(--ring); border-radius:12px; padding:10px 12px; font-weight:600; text-align:center; }
+    .sup{ font-size:.8em; vertical-align:super; margin-left:2px; opacity:.6; }
+    .fine-note{
+      margin:2px auto 0; max-width:880px; text-align:center;
+      color:var(--ink-dim); font-size:10px; opacity:.68;
+    }
+    .fine-note .dot{ margin:0 8px; opacity:.45; }
     @media (max-width:900px){ .points{ grid-template-columns:1fr; } }
 
-    /* Form */
+    /* ABOUT */
+    .about{
+      width:100%; margin-top:18px;
+      padding:20px 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--ring);
+      border-radius:18px;
+    }
+    .about p{
+      margin:0 auto; max-width:880px; text-align:center;
+      color:var(--ink-dim); line-height:1.7; font-size:16px;
+    }
+
+    /* FORM */
     .row{
       position:relative;
       display:flex; gap:12px; justify-content:center; flex-wrap:wrap;
-      align-items:center; margin:10px 0 6px;
+      align-items:center; margin:16px 0 6px;
     }
     input[type=email], .cta{ height:52px; line-height:52px; border-radius:999px; }
     input[type=email]{
@@ -103,13 +121,13 @@
     .cta:hover{ background:var(--accent-2); transform:translateY(-1px) }
     .cta[disabled]{ opacity:.7; cursor:not-allowed }
 
-    /* Success toast */
+    /* TOAST */
     .toast{
       position:absolute; top:-64px; left:50%; transform:translateX(-50%) translateY(-10px);
       background:linear-gradient(180deg, rgba(31,170,138,.18), rgba(31,170,138,.10));
       color:var(--ink); border:1px solid rgba(31,170,138,.45);
       box-shadow:0 10px 30px rgba(0,0,0,.35);
-      border-radius:12px; padding:10px 14px; font-weight:700;
+      border-radius:12px; padding:10px 14px; font-weight:700; letter-spacing:.02em;
       display:flex; align-items:center; gap:10px; opacity:0; pointer-events:none;
       backdrop-filter: blur(4px);
     }
@@ -119,7 +137,10 @@
     @keyframes toast-in { from{opacity:0; transform:translateX(-50%) translateY(-10px)} to{opacity:1; transform:translateX(-50%) translateY(0)} }
     @keyframes toast-out{ from{opacity:1; transform:translateX(-50%) translateY(0)} to{opacity:0; transform:translateX(-50%) translateY(-10px)} }
 
-    /* Gallery */
+    /* Reset figure margins (helps mobile centering) */
+    figure{ margin:0; }
+
+    /* PRODUCT GALLERY */
     .product-gallery{
       display:grid;
       grid-template-columns: repeat(3, minmax(260px, 1fr));
@@ -147,6 +168,7 @@
 </head>
 <body>
   <main class="wrap">
+    <!-- Header -->
     <header class="brand" aria-label="Kimora">
       <h1>KIMORA</h1>
       <div class="badge">CREATINE · ELECTROLYTES · DAILY</div>
@@ -157,17 +179,26 @@
       Daily creatine made delicious and easy — performance you can feel in the gym and in your head.
     </p>
 
-    <!-- Benefits Row -->
-    <div class="points">
-      <div class="pt">Strength<span class="sup">¹</span></div>
-      <div class="pt">Recovery<span class="sup">²</span></div>
-      <div class="pt">Focus<span class="sup">¹</span></div>
+    <!-- Benefits Row + Footnote -->
+    <div class="points" role="list">
+      <div class="pt" role="listitem">Strength<span class="sup">¹</span></div>
+      <div class="pt" role="listitem">Recovery<span class="sup">²</span></div>
+      <div class="pt" role="listitem">Focus<span class="sup">¹</span></div>
     </div>
-    <p class="fine-note">
+    <p class="fine-note" aria-label="Benefit notes">
       <span>¹ via creatine</span>
       <span class="dot">•</span>
       <span>² via creatine + electrolytes</span>
     </p>
+
+    <!-- About Section -->
+    <section class="about" aria-label="About Kimora">
+      <p>
+        Training is tough. Recovery is tougher. Kimora makes both easier. Powered by creatine — the most studied supplement in sports
+        nutrition — and balanced with essential electrolytes, it helps you build strength, recover faster, and stay sharp. Every scoop
+        gives your body and mind what they need to push harder today and come back stronger tomorrow.
+      </p>
+    </section>
 
     <!-- Email Form + Toast -->
     <form class="row" action="https://formspree.io/f/xovnojzg" method="POST" novalidate>
@@ -202,12 +233,14 @@
       </figure>
     </section>
 
+    <!-- Footer -->
     <footer>
       <div class="tag">OUT-TRAIN. OUT-SMART. OUT-LAST.</div>
       <div class="copy">Kimora Co. © 2025</div>
     </footer>
   </main>
 
+  <!-- Form handling -->
   <script>
     const form = document.querySelector('form');
     const toast = document.getElementById('toast');
