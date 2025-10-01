@@ -126,22 +126,40 @@
       margin:0; color:var(--ink-dim); font-size:13px; line-height:1.45;
     }
 
-    /* ABOUT BAND */
+    /* ABOUT BAND (with title + divider + bullets) */
     .about-band{
       width:100%;
       background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
       border-top:1px solid rgba(255,255,255,.08);
       border-bottom:1px solid rgba(255,255,255,.08);
-      margin:18px 0 6px;
+      margin:22px 0 10px;
     }
     .about{
       width:min(1100px,92vw);
-      margin:0 auto; padding:24px 18px;
+      margin:0 auto; padding:28px 18px 22px;
+      text-align:center;
+    }
+    .about-title{
+      margin:0;
+      font-family:"Bebas Neue", system-ui, sans-serif;
+      letter-spacing:.12em;
+      font-size: clamp(22px,3.6vw,34px);
+      color:var(--ink);
+    }
+    .about-rule{
+      width:120px; height:2px; border:0; margin:10px auto 14px;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
     }
     .about p{
-      margin:0 auto; max-width:880px; text-align:center;
+      margin:0 auto 10px; max-width:880px;
       color:var(--ink); line-height:1.7; font-size:17px;
     }
+    .about-points{
+      margin:10px auto 0; padding:0; list-style:none; color:var(--ink-dim);
+      display:flex; gap:18px; justify-content:center; flex-wrap:wrap; font-weight:600;
+    }
+    .about-points li{ position:relative; padding-left:20px; }
+    .about-points li::before{ content:"✓"; position:absolute; left:0; top:0; opacity:.7; }
 
     /* TRUST ROW */
     .trust{
@@ -212,6 +230,8 @@
       input[type=email]{ width:min(420px, 92vw); }
       .trust{ flex-direction:column; align-items:center; gap:6px }
       .trust li::before{ content:"" }
+      .about{ padding:24px 14px 18px }
+      .about-points{ gap:10px }
       .wrap{ padding-bottom:120px } /* breathing room above sticky CTA */
     }
 
@@ -234,26 +254,34 @@
     <section class="benefits" aria-label="Benefits">
       <div class="benefit">
         <h3>Strength</h3>
-        <p>Powered by <strong>creatine</strong> to fuel higher training volume.</p>
+        <p>Creatine fuels higher training volume to build muscle and power.</p>
       </div>
       <div class="benefit">
         <h3>Recovery</h3>
-        <p><strong>Creatine + electrolytes</strong> help replenish energy & hydration.</p>
+        <p>Creatine + electrolytes help replenish energy & hydration so you bounce back faster.</p>
       </div>
       <div class="benefit">
         <h3>Focus</h3>
-        <p><strong>Creatine</strong> supports brain energy for sharper sessions.</p>
+        <p>Creatine supports brain energy metabolism for sharp, consistent sessions.</p>
       </div>
     </section>
 
-    <!-- About Band -->
+    <!-- ABOUT BAND -->
     <div class="about-band">
       <section class="about" aria-label="About Kimora">
+        <h2 class="about-title">WHY KIMORA</h2>
+        <hr class="about-rule" aria-hidden="true" />
         <p>
-          Training is tough. Recovery is tougher. Kimora makes both easier. Powered by creatine — the most studied supplement in sports
-          nutrition — and balanced with essential electrolytes, it helps you build strength, recover faster, and stay sharp. Every scoop
-          gives your body and mind what they need to push harder today and come back stronger tomorrow.
+          Training is tough. Recovery is tougher. Kimora makes both easier. Powered by creatine — the most studied
+          supplement in sports nutrition — and balanced with essential electrolytes, it helps you build strength,
+          recover faster, and stay sharp. Every scoop gives your body and mind what they need to push harder today
+          and come back stronger tomorrow.
         </p>
+        <ul class="about-points" aria-label="Key reasons">
+          <li>Evidence-backed creatine (monohydrate)</li>
+          <li>Electrolytes for hydration & performance</li>
+          <li>Delicious daily sticks you’ll actually take</li>
+        </ul>
       </section>
     </div>
 
@@ -301,9 +329,7 @@
     </section>
 
     <!-- Secondary CTA -->
-    <a class="cta-secondary" href="#signup" aria-label="Join the waitlist">
-      Join the waitlist
-    </a>
+    <a class="cta-secondary" href="#signup" aria-label="Join the waitlist">Join the waitlist</a>
 
     <!-- Sticky CTA (mobile only) -->
     <a class="sticky-cta" href="#signup" aria-label="Join the waitlist (mobile)">Join the waitlist</a>
