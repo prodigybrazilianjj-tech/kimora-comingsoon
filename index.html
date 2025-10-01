@@ -15,10 +15,22 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.ico">
 
-  <!-- Fonts -->
+  <!-- Fonts (preload Bebas Neue for faster hero render) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="font" href="https://fonts.gstatic.com/s/bebasneue/v14/JTUSjIg1_i6t8kCHKm459Wlhzg.woff2" type="font/woff2" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Kimora",
+    "url": "https://kimoraco.com",
+    "logo": "https://kimoraco.com/favicon.ico"
+  }
+  </script>
 
   <style>
     :root{
@@ -26,106 +38,338 @@
       --accent:#0b5952; --accent-2:#0e7a71; --ring: rgba(255,255,255,.12);
     }
     *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-    .wrap{width:min(1100px,92vw);margin:0 auto;padding:42px 16px 110px;display:flex;flex-direction:column;align-items:center;gap:22px}
+    html,body{margin:0;height:100%}
+    html{scroll-behavior:smooth}
+    body{
+      background: radial-gradient(1200px 700px at 50% -10%, rgba(255,255,255,.06), transparent 55%) var(--bg);
+      color:var(--ink);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+      overflow-x:hidden;
+    }
 
-    h1{font-family:"Bebas Neue",sans-serif;font-size:clamp(72px,12vw,140px);margin:0;text-align:center;letter-spacing:.05em}
-    .badge{border:2px solid var(--ink);border-radius:999px;padding:6px 14px;font-size:12px;text-transform:uppercase;letter-spacing:.16em;font-weight:800;margin-top:10px}
-    .tagline{font-family:"Bebas Neue",sans-serif;font-size:clamp(20px,3vw,34px);letter-spacing:.1em;margin-top:6px;text-align:center}
-    .lead{max-width:700px;text-align:center;color:var(--ink-dim);font-size:17px;line-height:1.6;margin-top:8px}
+    .wrap{
+      width:min(1100px,92vw);
+      margin:0 auto;
+      padding:42px 16px 110px;
+      display:flex; flex-direction:column; align-items:center; gap:22px;
+    }
 
-    .benefits{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;width:100%;margin-top:24px}
-    .benefit{background:rgba(255,255,255,.03);border:1px solid var(--ring);border-radius:12px;padding:16px;text-align:center}
-    .benefit h3{margin:0 0 8px;font-size:16px;font-weight:800}
-    .benefit p{margin:0;color:var(--ink-dim);font-size:14px}
+    /* HEADER */
+    header[role="banner"]{ display:flex; flex-direction:column; align-items:center; gap:10px; width:100%; }
+    h1{
+      margin:10px 0 6px;
+      font-family:"Bebas Neue", system-ui, sans-serif;
+      letter-spacing:.06em;
+      font-size: clamp(72px, 12vw, 140px);
+      line-height:.95;
+      text-shadow: 0 10px 30px rgba(0,0,0,.55);
+      text-align:center;
+    }
+    .badge{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:8px 14px; border:2px solid var(--ink); border-radius:999px;
+      font-weight:900; letter-spacing:.16em; font-size:12px; text-transform:uppercase;
+      width:max-content; margin-inline:auto; margin-top:4px;
+    }
+    .tagline{
+      font-family:"Bebas Neue", sans-serif; letter-spacing:.12em;
+      font-size: clamp(20px,3.2vw,34px); text-align:center; margin-top:8px;
+    }
+    .lead{
+      max-width:800px; text-align:center; color:var(--ink-dim);
+      font-size: clamp(16px,2vw,19px); line-height:1.6; margin-top:8px;
+    }
 
-    .about-band{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.015));padding:40px 20px;width:100%;margin-top:36px;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
-    .about{text-align:center;max-width:900px;margin:0 auto}
-    .about-title{font-family:"Bebas Neue",sans-serif;font-size:32px;letter-spacing:.1em;margin-bottom:16px}
-    .about p{line-height:1.7;font-size:17px;margin-bottom:24px}
+    /* BENEFIT CARDS */
+    .benefits{
+      width:100%; margin:18px auto 4px;
+      display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; max-width:900px;
+    }
+    .benefit{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--ring);
+      border-radius:14px; padding:14px 16px;
+      text-align:center;
+    }
+    .benefit h3{ margin:0 0 6px; font-size:16px; font-weight:800; letter-spacing:.04em; }
+    .benefit p{ margin:0; color:var(--ink-dim); font-size:13px; line-height:1.45; }
 
-    .why-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;max-width:900px;margin:0 auto}
-    .why-item{display:flex;flex-direction:column;align-items:center;padding:16px;background:rgba(255,255,255,.02);border:1px solid var(--ring);border-radius:12px}
-    .why-icon{width:40px;height:40px;margin-bottom:10px;fill:var(--ink);opacity:.9}
-    .why-text{font-size:14px;color:var(--ink-dim);font-weight:600;text-align:center}
+    /* ABOUT BAND */
+    .about-band{
+      width:100%;
+      background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+      border-top:1px solid rgba(255,255,255,.08);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      margin:34px 0 16px;
+      border-radius:16px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+    }
+    .about{
+      width:min(1100px,92vw);
+      margin:0 auto; padding:36px 18px 28px;
+      text-align:center;
+    }
+    .about-title{
+      margin:0 0 12px;
+      font-family:"Bebas Neue", system-ui, sans-serif;
+      letter-spacing:.14em;
+      font-size: clamp(26px,4vw,38px);
+      color:var(--ink);
+      text-transform:uppercase;
+    }
+    .about p{
+      margin:0 auto 18px; max-width:880px;
+      color:var(--ink); line-height:1.7; font-size:17px;
+    }
 
-    .row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:26px}
-    input[type=email]{padding:0 16px;height:50px;border-radius:999px;border:none;width:280px}
-    .cta{height:50px;border-radius:999px;padding:0 20px;background:var(--accent);color:#fff;font-weight:800;letter-spacing:.08em;border:none;cursor:pointer}
-    .cta:hover{background:var(--accent-2)}
+    /* WHY checklist (icons in brand order: brain, battery, arm) */
+    .why-list{
+      display:grid; grid-template-columns: repeat(3,1fr); gap:12px;
+      max-width:900px; margin:0 auto 6px;
+    }
+    .why-item{
+      display:flex; gap:10px; align-items:flex-start; justify-content:center;
+      color:var(--ink-dim); font-weight:700; padding:12px 14px;
+      background:rgba(255,255,255,.02); border:1px solid var(--ring); border-radius:12px;
+    }
+    .why-icon{ flex:0 0 26px; margin-top:0; opacity:.95 }
+    .why-text{ font-size:14px; line-height:1.35 }
 
-    .trust{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;color:var(--ink-dim);margin-top:12px;font-size:14px}
+    /* FORM */
+    .row{
+      position:relative;
+      display:flex; gap:12px; justify-content:center; flex-wrap:wrap;
+      align-items:center; margin:24px 0 6px;
+    }
+    input[type=email], .cta{ height:50px; line-height:50px; border-radius:999px; }
+    input[type=email]{
+      padding:0 16px; border:none; width:min(420px,92vw);
+      color:#0a0a0a; background:#fff; box-shadow:0 10px 20px rgba(0,0,0,.45);
+      font-size:16px; outline:2px solid transparent;
+    }
+    input[type=email]:focus{ outline:2px solid var(--ring) }
+    .cta{
+      padding:0 22px; border:none; background:var(--accent); color:#eaf7f6; font-weight:900;
+      box-shadow:0 12px 34px rgba(11,89,82,.45); cursor:pointer; transition:.18s ease;
+      font-family:"Bebas Neue", sans-serif; font-size:20px; letter-spacing:.12em;
+    }
+    .cta:hover{ background:var(--accent-2); transform:translateY(-1px); box-shadow:0 14px 40px rgba(11,89,82,.55) }
+    .cta[disabled]{ opacity:.7; cursor:not-allowed }
 
-    .section-title{font-family:"Bebas Neue",sans-serif;font-size:28px;letter-spacing:.08em;margin:40px 0 16px;text-align:center}
-    .product-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;width:100%}
-    .card{background:var(--panel);border:1px solid var(--ring);border-radius:16px;padding:12px;text-align:center}
-    .imgbox{background:#fff;border-radius:12px;overflow:hidden}
-    .imgbox img{width:100%;height:auto;display:block}
+    /* TRUST ROW */
+    .trust{
+      display:flex; gap:18px; justify-content:center; margin:6px 0 0;
+      padding:0; list-style:none; color:var(--ink-dim); font-weight:600;
+      flex-wrap:wrap;
+    }
+    .trust li{ display:flex; align-items:center; gap:10px }
+    .trust li::before{ content:"•"; opacity:.5 }
 
-    footer{margin-top:40px;text-align:center;padding:24px 16px;border-top:1px solid rgba(255,255,255,.08);color:var(--ink-dim);font-size:13px}
+    /* FLAVORS */
+    .section-title{
+      margin:38px 0 10px; text-align:center;
+      font-family:"Bebas Neue", sans-serif; letter-spacing:.10em;
+      font-size: clamp(24px,4.2vw,36px);
+      color:var(--ink);
+    }
+    figure{ margin:0; }
+    .product-gallery{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(260px, 1fr));
+      gap:26px; justify-items:center; align-items:stretch; margin-top:10px; width:100%;
+    }
+    .card{
+      width:min(340px, 30vw);
+      background:var(--panel);
+      border:1px solid var(--ring);
+      border-radius:18px; padding:14px;
+      box-shadow:0 18px 50px rgba(0,0,0,.45);
+      transition:transform .18s ease, box-shadow .18s ease;
+      text-align:center;
+    }
+    .card:hover{ transform:translateY(-3px); box-shadow:0 24px 60px rgba(0,0,0,.55) }
+    .imgbox{
+      aspect-ratio: 3 / 4; width:100%; background:#fff; border-radius:12px;
+      display:flex; align-items:center; justify-content:center; overflow:hidden;
+    }
+    .imgbox img{ width:100%; height:auto; display:block; object-fit:contain; }
+    .tiny-note{ margin:.6rem 0 0; color:var(--ink-dim); font-size:13px }
+
+    /* Secondary CTA */
+    .cta-secondary-wrap{ text-align:center; margin-top:18px }
+    .cta.secondary{
+      height:48px; line-height:48px; padding:0 20px; font-size:18px;
+      background:transparent; color:var(--ink); border:1px solid var(--ring);
+    }
+    .cta.secondary:hover{ background:rgba(255,255,255,.05) }
+
+    /* FOOTER BAND */
+    .footer-band{
+      width:100%; margin-top:42px;
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+    footer{
+      max-width:1100px; margin:0 auto; text-align:center;
+      padding:22px 16px 34px;
+    }
+    .tag{ text-transform:uppercase; letter-spacing:.16em; font-weight:900; color:var(--ink-dim) }
+    .copy{ color:#d0c8ae; font-size:12px; margin-top:6px }
+
+    /* Responsive polish */
+    @media (max-width: 900px){
+      .benefits{ grid-template-columns:1fr; }
+      .why-list{ grid-template-columns:1fr; }
+      .product-gallery{ grid-template-columns: repeat(2, minmax(260px, 1fr)); }
+    }
+    @media (max-width: 620px){
+      .product-gallery{ grid-template-columns: 1fr; }
+      .card{ width:min(420px, 92vw); margin-inline:auto; box-shadow:0 10px 28px rgba(0,0,0,.45) }
+      input[type=email]{ width:min(420px, 92vw); }
+      .wrap{ padding-bottom:90px }
+      .section-title{ margin:30px 0 10px }
+    }
+
+    /* Accessibility: respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{ animation:none !important; transition:none !important }
+    }
   </style>
 </head>
 <body>
   <main class="wrap">
-    <header>
+    <!-- HERO -->
+    <header role="banner" aria-label="Kimora">
       <h1>KIMORA</h1>
       <div class="badge">CREATINE · ELECTROLYTES · DAILY</div>
       <div class="tagline">GROW STRONGER. THINK SHARPER.</div>
-      <p class="lead">Daily creatine made delicious and easy — performance you can feel in the gym and in your head.</p>
+      <p class="lead">
+        Daily creatine made delicious and easy — performance you can feel in the gym and in your head.
+      </p>
     </header>
 
-    <section class="benefits">
-      <div class="benefit"><h3>Strength</h3><p>Creatine fuels higher training volume to build muscle and power.</p></div>
-      <div class="benefit"><h3>Recovery</h3><p>Creatine + electrolytes help replenish energy & hydration so you bounce back faster.</p></div>
-      <div class="benefit"><h3>Focus</h3><p>Creatine supports brain energy metabolism for sharp, consistent sessions.</p></div>
+    <!-- Benefits -->
+    <section class="benefits" aria-label="Benefits">
+      <div class="benefit">
+        <h3>Strength</h3>
+        <p>Creatine fuels higher training volume via muscle phosphocreatine.</p>
+      </div>
+      <div class="benefit">
+        <h3>Recovery</h3>
+        <p>Creatine + electrolytes help restore energy & hydration so you bounce back faster.</p>
+      </div>
+      <div class="benefit">
+        <h3>Focus</h3>
+        <p>Creatine supports brain energy metabolism for sharp, consistent sessions.</p>
+      </div>
     </section>
 
+    <!-- WHY KIMORA -->
     <div class="about-band">
-      <section class="about">
+      <section class="about" aria-label="About Kimora">
         <h2 class="about-title">WHY KIMORA</h2>
-        <p>Training is tough. Recovery is tougher. Kimora makes both easier. Powered by creatine — the most studied supplement in sports nutrition — and balanced with essential electrolytes, it helps you build strength, recover faster, and stay sharp. Every scoop gives your body and mind what they need to push harder today and come back stronger tomorrow.</p>
-        <div class="why-list">
-          <div class="why-item">
-            <!-- Brain Icon -->
-            <svg class="why-icon" viewBox="0 0 24 24"><path d="M9 2a3 3 0 0 0-3 3v1H5a3 3 0 0 0 0 6h1v2H5a3 3 0 0 0 0 6h1v1a3 3 0 0 0 6 0v-1h2v1a3 3 0 0 0 6 0v-1h1a3 3 0 0 0 0-6h-1v-2h1a3 3 0 0 0 0-6h-1V5a3 3 0 0 0-3-3h-2V2a1 1 0 0 0-2 0v1H9z"/></svg>
+        <p>
+          Training is tough. Recovery is tougher. Kimora makes both easier. Powered by creatine — the most studied
+          supplement in sports nutrition — and balanced with essential electrolytes, it helps you build strength,
+          recover faster, and stay sharp. Every scoop gives your body and mind what they need to push harder today
+          and come back stronger tomorrow.
+        </p>
+
+        <div class="why-list" role="list">
+          <!-- Brain (Cognition) -->
+          <div class="why-item" role="listitem">
+            <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M8 8a3 3 0 0 1 3-3h1a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-1a3 3 0 0 1-3-3V8z"/>
+              <path d="M8 10H6a3 3 0 1 0 0 6h2"/>
+              <path d="M16 10h2a3 3 0 1 1 0 6h-2"/>
+            </svg>
             <div class="why-text">Evidence-backed creatine (monohydrate)</div>
           </div>
-          <div class="why-item">
-            <!-- Battery Icon -->
-            <svg class="why-icon" viewBox="0 0 24 24"><rect x="2" y="7" width="18" height="10" rx="2" ry="2"/><path d="M22 11v2"/></svg>
+          <!-- Battery (Recovery) -->
+          <div class="why-item" role="listitem">
+            <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="7" width="18" height="10" rx="2" ry="2"></rect>
+              <path d="M22 11v2"></path>
+              <path d="M4 12h8"></path>
+            </svg>
             <div class="why-text">Electrolytes for hydration & performance</div>
           </div>
-          <div class="why-item">
-            <!-- Muscle/Arm Icon -->
-            <svg class="why-icon" viewBox="0 0 24 24"><path d="M18 11c0-3-2-5-5-5h-1V4a1 1 0 0 0-2 0v2H9a3 3 0 0 0-3 3v3H5a3 3 0 0 0 0 6h6l2 3 2-3h3a3 3 0 0 0 0-6h-2v-1z"/></svg>
+          <!-- Arm (Muscle) -->
+          <div class="why-item" role="listitem">
+            <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M7 13v-3a3 3 0 0 1 3-3h2"></path>
+              <path d="M12 7v-2"></path>
+              <path d="M7 13c0 3 2.5 6 6 6h4a3 3 0 0 0 0-6h-2"></path>
+            </svg>
             <div class="why-text">Delicious daily sticks you’ll actually take</div>
           </div>
         </div>
       </section>
     </div>
 
-    <form class="row" action="https://formspree.io/f/xovnojzg" method="POST">
-      <input type="email" name="email" placeholder="Enter your email" required>
+    <!-- Top Signup -->
+    <form class="row" action="https://formspree.io/f/xovnojzg" method="POST" novalidate>
+      <input type="email" name="email" placeholder="Enter your email" required autocomplete="email" />
       <button class="cta" type="submit">JOIN THE WAITLIST</button>
     </form>
 
-    <div class="trust">
-      <div>Evidence-backed creatine</div>
-      <div>30 sticks · 1 month supply</div>
-      <div>No sugar · Great taste</div>
-    </div>
+    <!-- Trust Row -->
+    <ul class="trust" aria-label="Key details">
+      <li>Evidence-backed creatine</li>
+      <li>30 sticks · 1 month supply</li>
+      <li>No sugar · Great taste</li>
+    </ul>
 
+    <!-- Flavors -->
     <h2 class="section-title">THREE FLAVORS. ONE GOAL.</h2>
-    <section class="product-gallery">
-      <div class="card"><div class="imgbox"><img src="kimora-strawberry-guava-packaging.png" alt="Kimora Strawberry Guava packaging"></div></div>
-      <div class="card"><div class="imgbox"><img src="kimora-lemon-yuzu-packaging.png" alt="Kimora Lemon Yuzu packaging"></div></div>
-      <div class="card"><div class="imgbox"><img src="kimora-raspberry-dragonfruit-packaging.png" alt="Kimora Raspberry Dragonfruit packaging"></div></div>
+    <section class="product-gallery" aria-label="Flavors">
+      <figure class="card">
+        <div class="imgbox">
+          <img
+            src="kimora-strawberry-guava-packaging.png"
+            alt="Kimora Strawberry Guava packaging — creatine + electrolytes"
+            width="720" height="960" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="tiny-note">Strawberry Guava — Tropical, not-too-sweet.</figcaption>
+      </figure>
+
+      <figure class="card">
+        <div class="imgbox">
+          <img
+            src="kimora-lemon-yuzu-packaging.png"
+            alt="Kimora Lemon Yuzu packaging — creatine + electrolytes"
+            width="720" height="960" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="tiny-note">Lemon Yuzu — Bright citrus, clean finish.</figcaption>
+      </figure>
+
+      <figure class="card">
+        <div class="imgbox">
+          <img
+            src="kimora-raspberry-dragonfruit-packaging.png"
+            alt="Kimora Raspberry Dragonfruit packaging — creatine + electrolytes"
+            width="720" height="960" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="tiny-note">Raspberry Dragonfruit — Berry-forward, smooth.</figcaption>
+      </figure>
     </section>
+
+    <!-- Second CTA -->
+    <div class="cta-secondary-wrap">
+      <form class="row" action="https://formspree.io/f/xovnojzg" method="POST" novalidate>
+        <input type="email" name="email" placeholder="Enter your email" required autocomplete="email" />
+        <button class="cta secondary" type="submit">GET EARLY ACCESS</button>
+      </form>
+    </div>
   </main>
 
-  <footer>
-    <div>OUT-TRAIN. OUT-SMART. OUT-LAST.</div>
-    <div>Kimora Co. © 2025</div>
-  </footer>
+  <!-- Footer band -->
+  <div class="footer-band">
+    <footer>
+      <div class="tag">OUT-TRAIN. OUT-SMART. OUT-LAST.</div>
+      <div class="copy">Kimora Co. © 2025</div>
+    </footer>
+  </div>
 </body>
 </html>
