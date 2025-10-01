@@ -6,12 +6,14 @@
   <title>Kimora — Creatine + Electrolytes (Daily)</title>
 
   <!-- SEO -->
+  <link rel="canonical" href="https://kimoraco.com/">
   <meta name="description" content="Grow Stronger. Think Sharper. Daily creatine + electrolytes made delicious and easy. Join the waitlist.">
   <meta property="og:title" content="KIMORA — Creatine + Electrolytes (Daily)">
   <meta property="og:description" content="Daily creatine made delicious and easy — performance you can feel in the gym and in your head.">
   <meta property="og:image" content="kimora-strawberry-guava-packaging.png">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.ico">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,14 +41,14 @@
     .wrap{
       width:min(1100px,92vw);
       margin:0 auto;
-      padding:40px 16px 90px;
+      padding:40px 16px 100px;
       display:flex; flex-direction:column; align-items:center; gap:20px;
     }
 
     /* HEADER */
     .brand{ display:flex; flex-direction:column; align-items:center; gap:10px; width:100%; }
     .brand h1{
-      margin:10px 0 0;
+      margin:10px 0 4px;
       font-family:"Bebas Neue", system-ui, sans-serif;
       letter-spacing:.06em;
       font-size: clamp(72px, 12vw, 140px);
@@ -57,12 +59,12 @@
     .badge{
       display:inline-flex; align-items:center; justify-content:center;
       padding:8px 14px; border:2px solid var(--ink); border-radius:999px;
-      font-weight:800; letter-spacing:.14em; font-size:12px; text-transform:uppercase;
-      width:max-content; margin-inline:auto;
+      font-weight:900; letter-spacing:.16em; font-size:12px; text-transform:uppercase;
+      width:max-content; margin-inline:auto; margin-top:4px;
     }
     .tagline{
       font-family:"Bebas Neue", sans-serif; letter-spacing:.12em;
-      font-size: clamp(20px,3.2vw,34px); text-align:center;
+      font-size: clamp(20px,3.2vw,34px); text-align:center; margin-top:6px;
     }
     .lead{
       max-width:800px; text-align:center; color:var(--ink-dim);
@@ -73,9 +75,9 @@
     .row{
       position:relative;
       display:flex; gap:12px; justify-content:center; flex-wrap:wrap;
-      align-items:center; margin:12px 0 6px;
+      align-items:center; margin:14px 0 10px;
     }
-    input[type=email], .cta{ height:52px; line-height:52px; border-radius:999px; }
+    input[type=email], .cta{ height:56px; line-height:56px; border-radius:999px; }
     input[type=email]{
       padding:0 16px; border:none; width:min(380px,92vw);
       color:#0a0a0a; background:#fff; box-shadow:0 10px 20px rgba(0,0,0,.45);
@@ -85,9 +87,9 @@
     .cta{
       padding:0 22px; border:none; background:var(--accent); color:#eaf7f6; font-weight:900;
       box-shadow:0 12px 34px rgba(11,89,82,.45); cursor:pointer; transition:.18s ease;
-      font-family:"Bebas Neue", sans-serif; font-size:20px; letter-spacing:.12em;
+      font-family:"Bebas Neue", sans-serif; font-size:22px; letter-spacing:.12em;
     }
-    .cta:hover{ background:var(--accent-2); transform:translateY(-1px) }
+    .cta:hover{ background:var(--accent-2); transform:translateY(-1px); box-shadow:0 14px 40px rgba(11,89,82,.55) }
     .cta[disabled]{ opacity:.7; cursor:not-allowed }
 
     /* Success toast */
@@ -108,7 +110,7 @@
 
     /* BENEFIT CARDS */
     .benefits{
-      width:100%; margin:8px auto 6px;
+      width:100%; margin:10px auto 8px;
       display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; max-width:880px;
     }
     .benefit{
@@ -128,18 +130,26 @@
     .about-band{
       width:100%;
       background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border-top:1px solid var(--ring);
-      border-bottom:1px solid var(--ring);
-      margin:18px 0 8px;
+      border-top:1px solid rgba(255,255,255,.08);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      margin:18px 0 6px;
     }
     .about{
       width:min(1100px,92vw);
-      margin:0 auto; padding:22px 18px;
+      margin:0 auto; padding:24px 18px;
     }
     .about p{
       margin:0 auto; max-width:880px; text-align:center;
-      color:var(--ink-dim); line-height:1.7; font-size:16px;
+      color:var(--ink); line-height:1.7; font-size:17px;
     }
+
+    /* TRUST ROW */
+    .trust{
+      display:flex; gap:18px; justify-content:center; margin:10px 0 0;
+      padding:0; list-style:none; color:var(--ink-dim); font-weight:600;
+    }
+    .trust li{ display:flex; align-items:center; gap:10px }
+    .trust li::before{ content:"•"; opacity:.5 }
 
     /* FLAVORS */
     .section-title{
@@ -178,6 +188,15 @@
     }
     .cta-secondary:hover{ background:rgba(255,255,255,.05) }
 
+    /* Sticky CTA (mobile) */
+    @media (max-width:620px){
+      .sticky-cta{
+        position:fixed; left:50%; transform:translateX(-50%); bottom:14px; z-index:30;
+        padding:12px 20px; border-radius:999px; background:var(--accent); color:#eaf7f6;
+        font-weight:900; letter-spacing:.06em; text-decoration:none; box-shadow:0 12px 30px rgba(11,89,82,.45);
+      }
+    }
+
     footer{ margin-top:34px; text-align:center }
     .tag{ text-transform:uppercase; letter-spacing:.16em; font-weight:900; color:var(--ink-dim) }
     .copy{ color:#d0c8ae; font-size:12px; margin-top:6px }
@@ -189,8 +208,11 @@
     }
     @media (max-width: 620px){
       .product-gallery{ grid-template-columns: 1fr; }
-      .card{ width:min(420px, 92vw); margin:0 auto; }
+      .card{ width:min(420px, 92vw); margin-inline:auto; }
       input[type=email]{ width:min(420px, 92vw); }
+      .trust{ flex-direction:column; align-items:center; gap:6px }
+      .trust li::before{ content:"" }
+      .wrap{ padding-bottom:120px } /* breathing room above sticky CTA */
     }
 
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -212,15 +234,15 @@
     <section class="benefits" aria-label="Benefits">
       <div class="benefit">
         <h3>Strength</h3>
-        <p>Creatine fuels higher training volume to build muscle and power.</p>
+        <p>Powered by <strong>creatine</strong> to fuel higher training volume.</p>
       </div>
       <div class="benefit">
         <h3>Recovery</h3>
-        <p>Creatine + electrolytes help replenish energy and hydration so you bounce back faster.</p>
+        <p><strong>Creatine + electrolytes</strong> help replenish energy & hydration.</p>
       </div>
       <div class="benefit">
         <h3>Focus</h3>
-        <p>Creatine supports brain energy metabolism for sharp, consistent sessions.</p>
+        <p><strong>Creatine</strong> supports brain energy for sharper sessions.</p>
       </div>
     </section>
 
@@ -243,10 +265,20 @@
         </svg>
         <span>Thanks! You’re on the waitlist.</span>
       </div>
+
       <label for="email" class="sr-only">Email address</label>
-      <input id="email" type="email" name="email" placeholder="Enter your email" required autocomplete="email" />
+      <small id="email-help" class="sr-only">No spam. Unsubscribe anytime.</small>
+      <input id="email" type="email" name="email" placeholder="Enter your email" required autocomplete="email" aria-describedby="email-help" />
+      <input type="hidden" name="utm" id="utm" value="">
       <button class="cta" type="submit" id="cta">JOIN THE WAITLIST</button>
     </form>
+
+    <!-- Trust Row -->
+    <ul class="trust" aria-label="Key details">
+      <li>Evidence-backed creatine</li>
+      <li>30 sticks · 1 month supply</li>
+      <li>No sugar · Great taste</li>
+    </ul>
 
     <!-- Flavors -->
     <h2 class="section-title">Three Flavors. One Goal.</h2>
@@ -273,6 +305,9 @@
       Join the waitlist
     </a>
 
+    <!-- Sticky CTA (mobile only) -->
+    <a class="sticky-cta" href="#signup" aria-label="Join the waitlist (mobile)">Join the waitlist</a>
+
     <!-- Footer -->
     <footer>
       <div class="tag">OUT-TRAIN. OUT-SMART. OUT-LAST.</div>
@@ -280,8 +315,16 @@
     </footer>
   </main>
 
-  <!-- Form handling -->
+  <!-- Form handling + UTM capture -->
   <script>
+    // Capture UTM params for attribution
+    (function(){
+      const p = new URLSearchParams(location.search);
+      const keys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+      const s = keys.map(k => `${k}=${p.get(k)||''}`).join('&');
+      document.getElementById('utm').value = s;
+    })();
+
     const form = document.getElementById('signup');
     const toast = document.getElementById('toast');
     const cta = document.getElementById('cta');
