@@ -15,13 +15,13 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.ico">
 
-  <!-- Fonts (preload Bebas Neue for faster hero render) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="font" href="https://fonts.gstatic.com/s/bebasneue/v14/JTUSjIg1_i6t8kCHKm459Wlhzg.woff2" type="font/woff2" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <!-- JSON-LD -->
+  <!-- Organization JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -36,6 +36,7 @@
     :root{
       --bg:#0d0d0f; --panel:#141416; --ink:#fcf7ea; --ink-dim:#d8d0b8;
       --accent:#0b5952; --accent-2:#0e7a71; --ring: rgba(255,255,255,.12);
+      --success:#1faa8a; --danger:#d96a6a;
     }
     *{box-sizing:border-box}
     html,body{margin:0;height:100%}
@@ -157,11 +158,30 @@
     .cta:hover{ background:var(--accent-2); transform:translateY(-1px); box-shadow:0 14px 40px rgba(11,89,82,.55) }
     .cta[disabled]{ opacity:.7; cursor:not-allowed }
 
+    /* TOAST (success + error) */
+    .toast{
+      position:absolute; top:-64px; left:50%; transform:translateX(-50%) translateY(-10px);
+      background:linear-gradient(180deg, rgba(31,170,138,.18), rgba(31,170,138,.10));
+      color:var(--ink); border:1px solid rgba(31,170,138,.45);
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
+      border-radius:12px; padding:10px 14px; font-weight:700;
+      display:flex; align-items:center; gap:10px; opacity:0; pointer-events:none;
+      backdrop-filter: blur(4px);
+    }
+    .toast.error{
+      background:linear-gradient(180deg, rgba(217,106,106,.18), rgba(217,106,106,.10));
+      border-color: rgba(217,106,106,.45);
+    }
+    .toast svg{ flex:0 0 18px }
+    .toast.show{ animation: toast-in .35s ease-out forwards }
+    .toast.hide{ animation: toast-out .25s ease-in forwards }
+    @keyframes toast-in { from{opacity:0; transform:translateX(-50%) translateY(-10px)} to{opacity:1; transform:translateX(-50%) translateY(0)} }
+    @keyframes toast-out{ from{opacity:1; transform:translateX(-50%) translateY(0)} to{opacity:0; transform:translateX(-50%) translateY(-10px)} }
+
     /* TRUST ROW */
     .trust{
       display:flex; gap:18px; justify-content:center; margin:6px 0 0;
-      padding:0; list-style:none; color:var(--ink-dim); font-weight:600;
-      flex-wrap:wrap;
+      padding:0; list-style:none; color:var(--ink-dim); font-weight:600; flex-wrap:wrap;
     }
     .trust li{ display:flex; align-items:center; gap:10px }
     .trust li::before{ content:"•"; opacity:.5 }
@@ -231,7 +251,7 @@
       .section-title{ margin:30px 0 10px }
     }
 
-    /* Accessibility: respect reduced motion */
+    /* Accessibility: reduced motion */
     @media (prefers-reduced-motion: reduce){
       *{ animation:none !important; transition:none !important }
     }
@@ -308,10 +328,29 @@
       </section>
     </div>
 
-    <!-- Top Signup -->
-    <form class="row" action="https://formspree.io/f/xovnojzg" method="POST" novalidate>
-      <input type="email" name="email" placeholder="Enter your email" required autocomplete="email" />
-      <button class="cta" type="submit">JOIN THE WAITLIST</button>
+    <!-- Top Signup (toast-enabled) -->
+    <form class="row" id="signup" action="https://formspree.io/f/xovnojzg" method="POST" novalidate>
+      <!-- Success toast -->
+      <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 6L9 17l-5-5"/>
+        </svg>
+        <span>Thanks! You’re on the waitlist.</span>
+      </div>
+      <!-- Error toast -->
+      <div class="toast error" id="toasterror" role="alert" aria-live="assertive" aria-atomic="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 8v5M12 16h.01"/>
+        </svg>
+        <span>Something went wrong. Please try again.</span>
+      </div>
+
+      <input id="email" type="email" name="email" placeholder="Enter your email" required autocomplete="email" />
+      <input type="hidden" name="utm" id="utm" value="">
+      <button class="cta" type="submit" id="cta">JOIN THE WAITLIST</button>
+      <!-- No-JS fallback -->
+      <noscript><p style="color:var(--ink-dim);font-size:13px;margin:6px 0 0">After submitting, you’ll be taken to a confirmation page.</p></noscript>
     </form>
 
     <!-- Trust Row -->
@@ -357,8 +396,9 @@
 
     <!-- Second CTA -->
     <div class="cta-secondary-wrap">
-      <form class="row" action="https://formspree.io/f/xovnojzg" method="POST" novalidate>
+      <form class="row" id="signup2" action="https://formspree.io/f/xovnojzg" method="POST" novalidate>
         <input type="email" name="email" placeholder="Enter your email" required autocomplete="email" />
+        <input type="hidden" name="utm" value="">
         <button class="cta secondary" type="submit">GET EARLY ACCESS</button>
       </form>
     </div>
@@ -371,5 +411,77 @@
       <div class="copy">Kimora Co. © 2025</div>
     </footer>
   </div>
+
+  <script>
+    // Capture UTM params for attribution
+    (function(){
+      const p = new URLSearchParams(location.search);
+      const keys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+      const s = keys.map(k => `${k}=${p.get(k)||''}`).join('&');
+      const hidden1 = document.getElementById('utm');
+      if (hidden1) hidden1.value = s;
+      // mirror to second form if present
+      const hidden2 = document.querySelector('#signup2 input[name="utm"]');
+      if (hidden2) hidden2.value = s;
+    })();
+
+    // Toast helpers
+    function showToast(el, ms=3500){
+      if(!el) return;
+      el.classList.remove('hide');
+      el.classList.add('show');
+      setTimeout(()=>{ el.classList.remove('show'); el.classList.add('hide'); }, ms);
+    }
+
+    // AJAX submit for forms -> show toast + soft navigate to /thanks
+    function wireForm(formId, toastId, errorToastId){
+      const form = document.getElementById(formId);
+      if(!form) return;
+      const toastOk = document.getElementById(toastId);
+      const toastErr = document.getElementById(errorToastId);
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        const emailInput = form.querySelector('input[type="email"]');
+        const data = new FormData(form);
+        if(btn){ btn.disabled = true; btn.textContent = 'ADDING…'; }
+        try{
+          const res = await fetch(form.action, { method:'POST', body:data, headers:{ 'Accept':'application/json' }});
+          if(res.ok){
+            form.reset();
+            if(btn){ btn.textContent = btn.classList.contains('secondary') ? 'GET EARLY ACCESS' : 'JOIN THE WAITLIST'; btn.disabled = false; }
+            showToast(toastOk);
+            // Soft "redirect" to /thanks (updates URL so user can share/bookmark)
+            history.replaceState(null, '', '/thanks');
+          }else{
+            showToast(toastErr);
+            if(btn){ btn.textContent = btn.classList.contains('secondary') ? 'GET EARLY ACCESS' : 'JOIN THE WAITLIST'; btn.disabled = false; }
+          }
+        }catch{
+          showToast(toastErr);
+          if(btn){ btn.textContent = btn.classList.contains('secondary') ? 'GET EARLY ACCESS' : 'JOIN THE WAITLIST'; btn.disabled = false; }
+        }
+      });
+    }
+
+    // Create one shared toast area attached to the top form (so both forms use it)
+    (function mountSharedToasts(){
+      const topRow = document.getElementById('signup');
+      if(!topRow) return;
+      // already present in HTML: #toast and #toasterror
+    })();
+
+    // Wire both forms
+    wireForm('signup','toast','toasterror');
+    wireForm('signup2','toast','toasterror');
+
+    // If user actually visits /thanks, show success toast once
+    if (location.pathname.replace(/\/+$/,'') === '/thanks') {
+      const ok = document.getElementById('toast');
+      showToast(ok, 2500);
+      // Optionally reset URL after a few seconds
+      setTimeout(()=>{ history.replaceState(null,'','/'); }, 4000);
+    }
+  </script>
 </body>
 </html>
