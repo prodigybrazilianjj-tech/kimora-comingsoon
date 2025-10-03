@@ -12,7 +12,6 @@
   <meta property="og:description" content="Daily creatine made delicious and easy — performance you can feel in the gym and in your head.">
   <meta property="og:image" content="kimora-strawberry-guava-packaging.png">
   <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.ico">
 
   <!-- Fonts -->
@@ -44,7 +43,7 @@
     }
     .wrap{ width:min(1100px,92vw); margin:0 auto; padding:42px 16px 110px; display:flex; flex-direction:column; gap:30px; }
 
-    /* HERO — Option A split */
+    /* HERO — split */
     .hero.two-col{
       display:grid; grid-template-columns:1.1fr 1fr; gap:28px; align-items:center; width:100%;
     }
@@ -99,7 +98,7 @@
     .benefit h3{ margin:0 0 6px; font-size:16px; font-weight:800; letter-spacing:.04em }
     .benefit p{ margin:0; color:var(--ink-dim); font-size:13px; line-height:1.45 }
 
-    /* ABOUT + WHY */
+    /* ABOUT */
     .about-band{ width:100%; background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02)); border-top:1px solid rgba(255,255,255,.08); border-bottom:1px solid rgba(255,255,255,.08); margin:28px 0 8px; border-radius:16px; box-shadow: inset 0 0 0 1px rgba(255,255,255,.06) }
     .about{ width:min(1100px,92vw); margin:0 auto; padding:32px 18px 26px; text-align:center }
     .about-title{ margin:0 0 10px; font-family:"Bebas Neue",sans-serif; letter-spacing:.14em; font-size:clamp(26px,4vw,38px); text-transform:uppercase }
@@ -146,7 +145,7 @@
 </head>
 <body>
   <main class="wrap">
-    <!-- HERO: copy left, product visual right -->
+    <!-- HERO -->
     <section class="hero two-col" aria-label="Kimora">
       <div class="hero-copy">
         <h1>KIMORA</h1>
@@ -159,16 +158,13 @@
           <li>Delicious daily sticks</li>
         </ul>
 
-        <!-- Top Signup with toasts -->
         <form class="row" id="signup" action="https://formspree.io/f/xovnojzg" method="POST" novalidate>
-          <!-- Success toast -->
           <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M20 6L9 17l-5-5"/>
             </svg>
             <span>Thanks! You’re on the waitlist.</span>
           </div>
-          <!-- Error toast -->
           <div class="toast error" id="toasterror" role="alert" aria-live="assertive" aria-atomic="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <circle cx="12" cy="12" r="10"></circle>
@@ -180,13 +176,15 @@
           <input id="email" type="email" name="email" placeholder="Enter your email" required autocomplete="email" />
           <input type="hidden" name="utm" id="utm" value="">
           <button class="cta" type="submit" id="cta">JOIN THE WAITLIST</button>
-          <noscript><p style="color:var(--ink-dim);font-size:13px;margin:6px 0 0">After submitting, you’ll be taken to a confirmation page.</p></noscript>
         </form>
       </div>
 
       <div class="hero-art">
-        <!-- Export a clean composite of the 3 pouches as hero-pouches.png -->
-        <img src="hero-pouches.png" alt="Kimora flavor lineup — Strawberry Guava, Lemon Yuzu, Raspberry Dragonfruit" width="920" height="820" decoding="async" />
+        <!-- Updated to your clean filename -->
+        <img
+          src="kimora-flavor-lineup.png"
+          alt="Kimora flavor lineup — Strawberry Guava, Lemon Yuzu, Raspberry Dragonfruit"
+          width="920" height="820" decoding="async">
       </div>
     </section>
 
@@ -218,7 +216,6 @@
         </p>
 
         <div class="why-list" role="list">
-          <!-- Brain (Cognition) -->
           <div class="why-item" role="listitem">
             <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M8 8a3 3 0 0 1 3-3h1a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-1a3 3 0 0 1-3-3V8z"/>
@@ -227,7 +224,6 @@
             </svg>
             <div class="why-text">Evidence-backed creatine (monohydrate)</div>
           </div>
-          <!-- Battery (Recovery) -->
           <div class="why-item" role="listitem">
             <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <rect x="2" y="7" width="18" height="10" rx="2" ry="2"></rect>
@@ -236,7 +232,6 @@
             </svg>
             <div class="why-text">Electrolytes for hydration & performance</div>
           </div>
-          <!-- Arm (Muscle) -->
           <div class="why-item" role="listitem">
             <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M7 13v-3a3 3 0 0 1 3-3h2"></path>
@@ -289,7 +284,6 @@
     </div>
   </main>
 
-  <!-- Footer -->
   <div class="footer-band">
     <footer>
       <div class="tag">OUT-TRAIN. OUT-SMART. OUT-LAST.</div>
@@ -345,7 +339,6 @@
       });
     }
 
-    // Mount shared toasts on the top hero form (used by both forms)
     wireForm('signup','toast','toasterror');
     wireForm('signup2','toast','toasterror');
   </script>
