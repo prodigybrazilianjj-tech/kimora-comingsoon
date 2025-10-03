@@ -21,15 +21,9 @@
   <link rel="preload" as="font" href="https://fonts.gstatic.com/s/bebasneue/v14/JTUSjIg1_i6t8kCHKm459Wlhzg.woff2" type="font/woff2" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <!-- Organization JSON-LD -->
+  <!-- Org JSON-LD -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Kimora",
-    "url": "https://kimoraco.com",
-    "logo": "https://kimoraco.com/favicon.ico"
-  }
+  { "@context": "https://schema.org", "@type": "Organization", "name": "Kimora", "url": "https://kimoraco.com", "logo": "https://kimoraco.com/favicon.ico" }
   </script>
 
   <style>
@@ -48,119 +42,41 @@
       -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
       overflow-x:hidden;
     }
+    .wrap{ width:min(1100px,92vw); margin:0 auto; padding:42px 16px 110px; display:flex; flex-direction:column; gap:30px; }
 
-    .wrap{
-      width:min(1100px,92vw);
-      margin:0 auto;
-      padding:42px 16px 110px;
-      display:flex; flex-direction:column; align-items:center; gap:22px;
+    /* HERO — Option A split */
+    .hero.two-col{
+      display:grid; grid-template-columns:1.1fr 1fr; gap:28px; align-items:center; width:100%;
     }
-
-    /* HEADER */
-    header[role="banner"]{ display:flex; flex-direction:column; align-items:center; gap:10px; width:100%; }
-    h1{
-      margin:10px 0 6px;
-      font-family:"Bebas Neue", system-ui, sans-serif;
-      letter-spacing:.06em;
-      font-size: clamp(72px, 12vw, 140px);
-      line-height:.95;
-      text-shadow: 0 10px 30px rgba(0,0,0,.55);
-      text-align:center;
+    .hero-copy h1{
+      margin:0 0 6px; text-align:left;
+      font-family:"Bebas Neue",sans-serif; letter-spacing:.06em; line-height:.95;
+      font-size:clamp(64px,9vw,120px); text-shadow:0 10px 30px rgba(0,0,0,.55);
     }
     .badge{
       display:inline-flex; align-items:center; justify-content:center;
       padding:8px 14px; border:2px solid var(--ink); border-radius:999px;
       font-weight:900; letter-spacing:.16em; font-size:12px; text-transform:uppercase;
-      width:max-content; margin-inline:auto; margin-top:4px;
+      width:max-content; margin:6px 0 10px;
     }
-    .tagline{
-      font-family:"Bebas Neue", sans-serif; letter-spacing:.12em;
-      font-size: clamp(20px,3.2vw,34px); text-align:center; margin-top:8px;
+    .kicker{
+      font-family:"Bebas Neue",sans-serif; letter-spacing:.10em;
+      font-size:clamp(22px,3vw,34px); margin:.25rem 0 .85rem; color:var(--ink);
     }
-    .lead{
-      max-width:800px; text-align:center; color:var(--ink-dim);
-      font-size: clamp(16px,2vw,19px); line-height:1.6; margin-top:8px;
-    }
+    .chips{ display:flex; flex-wrap:wrap; gap:8px; padding:0; margin:6px 0 14px; list-style:none }
+    .chips li{ border:1px solid var(--ring); border-radius:999px; padding:6px 10px; font-weight:700; color:var(--ink-dim); font-size:13px; background:rgba(255,255,255,.03) }
 
-    /* BENEFIT CARDS */
-    .benefits{
-      width:100%; margin:18px auto 4px;
-      display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; max-width:900px;
-    }
-    .benefit{
-      background:rgba(255,255,255,.03);
-      border:1px solid var(--ring);
-      border-radius:14px; padding:14px 16px;
-      text-align:center;
-    }
-    .benefit h3{ margin:0 0 6px; font-size:16px; font-weight:800; letter-spacing:.04em; }
-    .benefit p{ margin:0; color:var(--ink-dim); font-size:13px; line-height:1.45; }
-
-    /* ABOUT BAND */
-    .about-band{
-      width:100%;
-      background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
-      border-top:1px solid rgba(255,255,255,.08);
-      border-bottom:1px solid rgba(255,255,255,.08);
-      margin:34px 0 16px;
-      border-radius:16px;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
-    }
-    .about{
-      width:min(1100px,92vw);
-      margin:0 auto; padding:36px 18px 28px;
-      text-align:center;
-    }
-    .about-title{
-      margin:0 0 12px;
-      font-family:"Bebas Neue", system-ui, sans-serif;
-      letter-spacing:.14em;
-      font-size: clamp(26px,4vw,38px);
-      color:var(--ink);
-      text-transform:uppercase;
-    }
-    .about p{
-      margin:0 auto 18px; max-width:880px;
-      color:var(--ink); line-height:1.7; font-size:17px;
-    }
-
-    /* WHY checklist (icons in brand order: brain, battery, arm) */
-    .why-list{
-      display:grid; grid-template-columns: repeat(3,1fr); gap:12px;
-      max-width:900px; margin:0 auto 6px;
-    }
-    .why-item{
-      display:flex; gap:10px; align-items:flex-start; justify-content:center;
-      color:var(--ink-dim); font-weight:700; padding:12px 14px;
-      background:rgba(255,255,255,.02); border:1px solid var(--ring); border-radius:12px;
-    }
-    .why-icon{ flex:0 0 26px; margin-top:0; opacity:.95 }
-    .why-text{ font-size:14px; line-height:1.35 }
-
-    /* FORM */
-    .row{
-      position:relative;
-      display:flex; gap:12px; justify-content:center; flex-wrap:wrap;
-      align-items:center; margin:24px 0 6px;
-    }
+    .row{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
     input[type=email], .cta{ height:50px; line-height:50px; border-radius:999px; }
-    input[type=email]{
-      padding:0 16px; border:none; width:min(420px,92vw);
-      color:#0a0a0a; background:#fff; box-shadow:0 10px 20px rgba(0,0,0,.45);
-      font-size:16px; outline:2px solid transparent;
-    }
+    input[type=email]{ padding:0 16px; border:none; width:min(420px,92vw); color:#0a0a0a; background:#fff; box-shadow:0 10px 20px rgba(0,0,0,.45); font-size:16px; outline:2px solid transparent; }
     input[type=email]:focus{ outline:2px solid var(--ring) }
-    .cta{
-      padding:0 22px; border:none; background:var(--accent); color:#eaf7f6; font-weight:900;
-      box-shadow:0 12px 34px rgba(11,89,82,.45); cursor:pointer; transition:.18s ease;
-      font-family:"Bebas Neue", sans-serif; font-size:20px; letter-spacing:.12em;
-    }
+    .cta{ padding:0 22px; border:none; background:var(--accent); color:#eaf7f6; font-weight:900; box-shadow:0 12px 34px rgba(11,89,82,.45); cursor:pointer; transition:.18s ease; font-family:"Bebas Neue", sans-serif; font-size:20px; letter-spacing:.12em; }
     .cta:hover{ background:var(--accent-2); transform:translateY(-1px); box-shadow:0 14px 40px rgba(11,89,82,.55) }
     .cta[disabled]{ opacity:.7; cursor:not-allowed }
 
-    /* TOAST (success + error) */
+    /* Toasts */
     .toast{
-      position:absolute; top:-64px; left:50%; transform:translateX(-50%) translateY(-10px);
+      position:absolute; top:-58px; left:0;
       background:linear-gradient(180deg, rgba(31,170,138,.18), rgba(31,170,138,.10));
       color:var(--ink); border:1px solid rgba(31,170,138,.45);
       box-shadow:0 10px 30px rgba(0,0,0,.35);
@@ -168,106 +84,111 @@
       display:flex; align-items:center; gap:10px; opacity:0; pointer-events:none;
       backdrop-filter: blur(4px);
     }
-    .toast.error{
-      background:linear-gradient(180deg, rgba(217,106,106,.18), rgba(217,106,106,.10));
-      border-color: rgba(217,106,106,.45);
-    }
+    .toast.error{ background:linear-gradient(180deg, rgba(217,106,106,.18), rgba(217,106,106,.10)); border-color: rgba(217,106,106,.45); }
     .toast svg{ flex:0 0 18px }
-    .toast.show{ animation: toast-in .35s ease-out forwards }
-    .toast.hide{ animation: toast-out .25s ease-in forwards }
-    @keyframes toast-in { from{opacity:0; transform:translateX(-50%) translateY(-10px)} to{opacity:1; transform:translateX(-50%) translateY(0)} }
-    @keyframes toast-out{ from{opacity:1; transform:translateX(-50%) translateY(0)} to{opacity:0; transform:translateX(-50%) translateY(-10px)} }
+    .show{ animation: toast-in .35s ease-out forwards }
+    .hide{ animation: toast-out .25s ease-in forwards }
+    @keyframes toast-in { from{opacity:0; transform:translateY(-10px)} to{opacity:1; transform:translateY(0)} }
+    @keyframes toast-out{ from{opacity:1; transform:translateY(0)} to{opacity:0; transform:translateY(-10px)} }
 
-    /* TRUST ROW */
-    .trust{
-      display:flex; gap:18px; justify-content:center; margin:6px 0 0;
-      padding:0; list-style:none; color:var(--ink-dim); font-weight:600; flex-wrap:wrap;
-    }
+    .hero-art img{ width:100%; height:auto; display:block; filter:drop-shadow(0 24px 60px rgba(0,0,0,.5)); border-radius:14px; background:#fff; }
+
+    /* BENEFITS */
+    .benefits{ width:100%; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; max-width:900px; margin:6px auto 0; }
+    .benefit{ background:rgba(255,255,255,.03); border:1px solid var(--ring); border-radius:14px; padding:14px 16px; text-align:center }
+    .benefit h3{ margin:0 0 6px; font-size:16px; font-weight:800; letter-spacing:.04em }
+    .benefit p{ margin:0; color:var(--ink-dim); font-size:13px; line-height:1.45 }
+
+    /* ABOUT + WHY */
+    .about-band{ width:100%; background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02)); border-top:1px solid rgba(255,255,255,.08); border-bottom:1px solid rgba(255,255,255,.08); margin:28px 0 8px; border-radius:16px; box-shadow: inset 0 0 0 1px rgba(255,255,255,.06) }
+    .about{ width:min(1100px,92vw); margin:0 auto; padding:32px 18px 26px; text-align:center }
+    .about-title{ margin:0 0 10px; font-family:"Bebas Neue",sans-serif; letter-spacing:.14em; font-size:clamp(26px,4vw,38px); text-transform:uppercase }
+    .about p{ margin:0 auto 16px; max-width:880px; color:var(--ink); line-height:1.7; font-size:17px }
+
+    .why-list{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; max-width:900px; margin:0 auto }
+    .why-item{ display:flex; gap:10px; align-items:flex-start; justify-content:center; color:var(--ink-dim); font-weight:700; padding:12px 14px; background:rgba(255,255,255,.02); border:1px solid var(--ring); border-radius:12px }
+    .why-icon{ flex:0 0 26px; opacity:.95 }
+    .why-text{ font-size:14px; line-height:1.35 }
+
+    /* TRUST */
+    .trust{ display:flex; gap:18px; justify-content:center; margin:6px 0 0; padding:0; list-style:none; color:var(--ink-dim); font-weight:600; flex-wrap:wrap }
     .trust li{ display:flex; align-items:center; gap:10px }
     .trust li::before{ content:"•"; opacity:.5 }
 
     /* FLAVORS */
-    .section-title{
-      margin:38px 0 10px; text-align:center;
-      font-family:"Bebas Neue", sans-serif; letter-spacing:.10em;
-      font-size: clamp(24px,4.2vw,36px);
-      color:var(--ink);
-    }
-    figure{ margin:0; }
-    .product-gallery{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(260px, 1fr));
-      gap:26px; justify-items:center; align-items:stretch; margin-top:10px; width:100%;
-    }
-    .card{
-      width:min(340px, 30vw);
-      background:var(--panel);
-      border:1px solid var(--ring);
-      border-radius:18px; padding:14px;
-      box-shadow:0 18px 50px rgba(0,0,0,.45);
-      transition:transform .18s ease, box-shadow .18s ease;
-      text-align:center;
-    }
+    .section-title{ margin:34px 0 10px; text-align:center; font-family:"Bebas Neue",sans-serif; letter-spacing:.10em; font-size:clamp(24px,4.2vw,36px) }
+    figure{ margin:0 }
+    .product-gallery{ display:grid; grid-template-columns: repeat(3, minmax(260px, 1fr)); gap:26px; justify-items:center; align-items:stretch; margin-top:10px; width:100% }
+    .card{ width:min(340px,30vw); background:var(--panel); border:1px solid var(--ring); border-radius:18px; padding:14px; box-shadow:0 18px 50px rgba(0,0,0,.45); transition:transform .18s ease, box-shadow .18s ease; text-align:center }
     .card:hover{ transform:translateY(-3px); box-shadow:0 24px 60px rgba(0,0,0,.55) }
-    .imgbox{
-      aspect-ratio: 3 / 4; width:100%; background:#fff; border-radius:12px;
-      display:flex; align-items:center; justify-content:center; overflow:hidden;
-    }
-    .imgbox img{ width:100%; height:auto; display:block; object-fit:contain; }
+    .imgbox{ aspect-ratio:3/4; width:100%; background:#fff; border-radius:12px; display:flex; align-items:center; justify-content:center; overflow:hidden }
+    .imgbox img{ width:100%; height:auto; object-fit:contain; display:block }
     .tiny-note{ margin:.6rem 0 0; color:var(--ink-dim); font-size:13px }
 
     /* Secondary CTA */
     .cta-secondary-wrap{ text-align:center; margin-top:18px }
-    .cta.secondary{
-      height:48px; line-height:48px; padding:0 20px; font-size:18px;
-      background:transparent; color:var(--ink); border:1px solid var(--ring);
-    }
+    .cta.secondary{ height:48px; line-height:48px; padding:0 20px; font-size:18px; background:transparent; color:var(--ink); border:1px solid var(--ring) }
     .cta.secondary:hover{ background:rgba(255,255,255,.05) }
 
-    /* FOOTER BAND */
-    .footer-band{
-      width:100%; margin-top:42px;
-      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
-      border-top:1px solid rgba(255,255,255,.08);
-    }
-    footer{
-      max-width:1100px; margin:0 auto; text-align:center;
-      padding:22px 16px 34px;
-    }
+    /* FOOTER */
+    .footer-band{ width:100%; margin-top:36px; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015)); border-top:1px solid rgba(255,255,255,.08) }
+    footer{ max-width:1100px; margin:0 auto; text-align:center; padding:22px 16px 34px }
     .tag{ text-transform:uppercase; letter-spacing:.16em; font-weight:900; color:var(--ink-dim) }
     .copy{ color:#d0c8ae; font-size:12px; margin-top:6px }
 
-    /* Responsive polish */
-    @media (max-width: 900px){
-      .benefits{ grid-template-columns:1fr; }
-      .why-list{ grid-template-columns:1fr; }
-      .product-gallery{ grid-template-columns: repeat(2, minmax(260px, 1fr)); }
-    }
-    @media (max-width: 620px){
-      .product-gallery{ grid-template-columns: 1fr; }
-      .card{ width:min(420px, 92vw); margin-inline:auto; box-shadow:0 10px 28px rgba(0,0,0,.45) }
-      input[type=email]{ width:min(420px, 92vw); }
-      .wrap{ padding-bottom:90px }
-      .section-title{ margin:30px 0 10px }
-    }
+    /* Responsive */
+    @media (max-width:1024px){ .hero.two-col{ grid-template-columns:1fr; } .hero-copy h1{ text-align:center } .badge{ margin-inline:auto } .kicker{ text-align:center } .chips{ justify-content:center } .row{ justify-content:center } .hero-art{ order:-1; margin:-8px auto 6px; max-width:560px } }
+    @media (max-width:900px){ .benefits{ grid-template-columns:1fr } .why-list{ grid-template-columns:1fr } .product-gallery{ grid-template-columns: repeat(2, minmax(260px, 1fr)) } }
+    @media (max-width:620px){ .product-gallery{ grid-template-columns:1fr } .card{ width:min(420px,92vw); margin-inline:auto; box-shadow:0 10px 28px rgba(0,0,0,.45) } .wrap{ padding-bottom:90px } }
 
-    /* Accessibility: reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      *{ animation:none !important; transition:none !important }
-    }
+    @media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important } }
   </style>
 </head>
 <body>
   <main class="wrap">
-    <!-- HERO -->
-    <header role="banner" aria-label="Kimora">
-      <h1>KIMORA</h1>
-      <div class="badge">CREATINE · ELECTROLYTES · DAILY</div>
-      <div class="tagline">GROW STRONGER. THINK SHARPER.</div>
-      <p class="lead">
-        Daily creatine made delicious and easy — performance you can feel in the gym and in your head.
-      </p>
-    </header>
+    <!-- HERO: copy left, product visual right -->
+    <section class="hero two-col" aria-label="Kimora">
+      <div class="hero-copy">
+        <h1>KIMORA</h1>
+        <div class="badge">CREATINE · ELECTROLYTES · DAILY</div>
+        <p class="kicker">GROW STRONGER. THINK SHARPER.</p>
+
+        <ul class="chips" aria-label="Key promises">
+          <li>Evidence-backed creatine</li>
+          <li>Essential electrolytes</li>
+          <li>Delicious daily sticks</li>
+        </ul>
+
+        <!-- Top Signup with toasts -->
+        <form class="row" id="signup" action="https://formspree.io/f/xovnojzg" method="POST" novalidate>
+          <!-- Success toast -->
+          <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 6L9 17l-5-5"/>
+            </svg>
+            <span>Thanks! You’re on the waitlist.</span>
+          </div>
+          <!-- Error toast -->
+          <div class="toast error" id="toasterror" role="alert" aria-live="assertive" aria-atomic="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 8v5M12 16h.01"/>
+            </svg>
+            <span>Something went wrong. Please try again.</span>
+          </div>
+
+          <input id="email" type="email" name="email" placeholder="Enter your email" required autocomplete="email" />
+          <input type="hidden" name="utm" id="utm" value="">
+          <button class="cta" type="submit" id="cta">JOIN THE WAITLIST</button>
+          <noscript><p style="color:var(--ink-dim);font-size:13px;margin:6px 0 0">After submitting, you’ll be taken to a confirmation page.</p></noscript>
+        </form>
+      </div>
+
+      <div class="hero-art">
+        <!-- Export a clean composite of the 3 pouches as hero-pouches.png -->
+        <img src="hero-pouches.png" alt="Kimora flavor lineup — Strawberry Guava, Lemon Yuzu, Raspberry Dragonfruit" width="920" height="820" decoding="async" />
+      </div>
+    </section>
 
     <!-- Benefits -->
     <section class="benefits" aria-label="Benefits">
@@ -328,31 +249,6 @@
       </section>
     </div>
 
-    <!-- Top Signup (toast-enabled) -->
-    <form class="row" id="signup" action="https://formspree.io/f/xovnojzg" method="POST" novalidate>
-      <!-- Success toast -->
-      <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M20 6L9 17l-5-5"/>
-        </svg>
-        <span>Thanks! You’re on the waitlist.</span>
-      </div>
-      <!-- Error toast -->
-      <div class="toast error" id="toasterror" role="alert" aria-live="assertive" aria-atomic="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="10"></circle>
-          <path d="M12 8v5M12 16h.01"/>
-        </svg>
-        <span>Something went wrong. Please try again.</span>
-      </div>
-
-      <input id="email" type="email" name="email" placeholder="Enter your email" required autocomplete="email" />
-      <input type="hidden" name="utm" id="utm" value="">
-      <button class="cta" type="submit" id="cta">JOIN THE WAITLIST</button>
-      <!-- No-JS fallback -->
-      <noscript><p style="color:var(--ink-dim);font-size:13px;margin:6px 0 0">After submitting, you’ll be taken to a confirmation page.</p></noscript>
-    </form>
-
     <!-- Trust Row -->
     <ul class="trust" aria-label="Key details">
       <li>Evidence-backed creatine</li>
@@ -365,30 +261,19 @@
     <section class="product-gallery" aria-label="Flavors">
       <figure class="card">
         <div class="imgbox">
-          <img
-            src="kimora-strawberry-guava-packaging.png"
-            alt="Kimora Strawberry Guava packaging — creatine + electrolytes"
-            width="720" height="960" loading="lazy" decoding="async">
+          <img src="kimora-strawberry-guava-packaging.png" alt="Kimora Strawberry Guava packaging — creatine + electrolytes" width="720" height="960" loading="lazy" decoding="async">
         </div>
         <figcaption class="tiny-note">Strawberry Guava — Tropical, not-too-sweet.</figcaption>
       </figure>
-
       <figure class="card">
         <div class="imgbox">
-          <img
-            src="kimora-lemon-yuzu-packaging.png"
-            alt="Kimora Lemon Yuzu packaging — creatine + electrolytes"
-            width="720" height="960" loading="lazy" decoding="async">
+          <img src="kimora-lemon-yuzu-packaging.png" alt="Kimora Lemon Yuzu packaging — creatine + electrolytes" width="720" height="960" loading="lazy" decoding="async">
         </div>
         <figcaption class="tiny-note">Lemon Yuzu — Bright citrus, clean finish.</figcaption>
       </figure>
-
       <figure class="card">
         <div class="imgbox">
-          <img
-            src="kimora-raspberry-dragonfruit-packaging.png"
-            alt="Kimora Raspberry Dragonfruit packaging — creatine + electrolytes"
-            width="720" height="960" loading="lazy" decoding="async">
+          <img src="kimora-raspberry-dragonfruit-packaging.png" alt="Kimora Raspberry Dragonfruit packaging — creatine + electrolytes" width="720" height="960" loading="lazy" decoding="async">
         </div>
         <figcaption class="tiny-note">Raspberry Dragonfruit — Berry-forward, smooth.</figcaption>
       </figure>
@@ -404,7 +289,7 @@
     </div>
   </main>
 
-  <!-- Footer band -->
+  <!-- Footer -->
   <div class="footer-band">
     <footer>
       <div class="tag">OUT-TRAIN. OUT-SMART. OUT-LAST.</div>
@@ -413,19 +298,17 @@
   </div>
 
   <script>
-    // Capture UTM params for attribution
+    // UTM capture
     (function(){
       const p = new URLSearchParams(location.search);
       const keys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
       const s = keys.map(k => `${k}=${p.get(k)||''}`).join('&');
       const hidden1 = document.getElementById('utm');
       if (hidden1) hidden1.value = s;
-      // mirror to second form if present
       const hidden2 = document.querySelector('#signup2 input[name="utm"]');
       if (hidden2) hidden2.value = s;
     })();
 
-    // Toast helpers
     function showToast(el, ms=3500){
       if(!el) return;
       el.classList.remove('hide');
@@ -433,16 +316,14 @@
       setTimeout(()=>{ el.classList.remove('show'); el.classList.add('hide'); }, ms);
     }
 
-    // AJAX submit for forms -> show toast + soft navigate to /thanks
-    function wireForm(formId, toastId, errorToastId){
+    function wireForm(formId, okId, errId){
       const form = document.getElementById(formId);
       if(!form) return;
-      const toastOk = document.getElementById(toastId);
-      const toastErr = document.getElementById(errorToastId);
-      form.addEventListener('submit', async (e) => {
+      const ok = document.getElementById(okId);
+      const err = document.getElementById(errId);
+      form.addEventListener('submit', async (e)=>{
         e.preventDefault();
         const btn = form.querySelector('button[type="submit"]');
-        const emailInput = form.querySelector('input[type="email"]');
         const data = new FormData(form);
         if(btn){ btn.disabled = true; btn.textContent = 'ADDING…'; }
         try{
@@ -450,38 +331,23 @@
           if(res.ok){
             form.reset();
             if(btn){ btn.textContent = btn.classList.contains('secondary') ? 'GET EARLY ACCESS' : 'JOIN THE WAITLIST'; btn.disabled = false; }
-            showToast(toastOk);
-            // Soft "redirect" to /thanks (updates URL so user can share/bookmark)
+            showToast(ok);
             history.replaceState(null, '', '/thanks');
+            setTimeout(()=>{ history.replaceState(null,'','/'); }, 4000);
           }else{
-            showToast(toastErr);
+            showToast(err);
             if(btn){ btn.textContent = btn.classList.contains('secondary') ? 'GET EARLY ACCESS' : 'JOIN THE WAITLIST'; btn.disabled = false; }
           }
         }catch{
-          showToast(toastErr);
+          showToast(err);
           if(btn){ btn.textContent = btn.classList.contains('secondary') ? 'GET EARLY ACCESS' : 'JOIN THE WAITLIST'; btn.disabled = false; }
         }
       });
     }
 
-    // Create one shared toast area attached to the top form (so both forms use it)
-    (function mountSharedToasts(){
-      const topRow = document.getElementById('signup');
-      if(!topRow) return;
-      // already present in HTML: #toast and #toasterror
-    })();
-
-    // Wire both forms
+    // Mount shared toasts on the top hero form (used by both forms)
     wireForm('signup','toast','toasterror');
     wireForm('signup2','toast','toasterror');
-
-    // If user actually visits /thanks, show success toast once
-    if (location.pathname.replace(/\/+$/,'') === '/thanks') {
-      const ok = document.getElementById('toast');
-      showToast(ok, 2500);
-      // Optionally reset URL after a few seconds
-      setTimeout(()=>{ history.replaceState(null,'','/'); }, 4000);
-    }
   </script>
 </body>
 </html>
