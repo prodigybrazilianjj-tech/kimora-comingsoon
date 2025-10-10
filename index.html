@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9G1REPW4B9"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-9G1REPW4B9');
-  </script>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Kimora — Creatine + Electrolytes (Daily)</title>
@@ -21,12 +12,15 @@
   <meta property="og:image" content="kimora-flavor-lineup.png">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="KIMORA — Creatine + Electrolytes (Daily)">
-  <meta name="twitter:description" content="Grow Stronger. Think Sharper. Daily creatine made delicious and easy.">
-  <meta name="twitter:image" content="kimora-flavor-lineup.png">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
+  <!-- Google Analytics Tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9G1REPW4B9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9G1REPW4B9');
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -136,6 +130,10 @@
       letter-spacing:.12em; font-size: clamp(22px,3vw,34px);
       margin:28px 0 10px;
     }
+    .improve{
+      text-align:center; color:var(--ink-dim); font-weight:700;
+      margin-bottom:24px; letter-spacing:.1em;
+    }
     .product-gallery{
       margin-inline:auto;
       display:grid;
@@ -164,10 +162,7 @@
     @media (max-width: 900px){
       .benefits{ grid-template-columns: 1fr; gap:12px }
       .why{ padding:22px 16px }
-      .product-gallery{
-        grid-template-columns: repeat(2, minmax(240px, 1fr));
-        gap:18px;
-      }
+      .product-gallery{ grid-template-columns: repeat(2, minmax(240px, 1fr)); gap:18px; }
     }
     @media (max-width: 680px){
       .brand{ font-size: clamp(56px, 15vw, 90px); }
@@ -184,6 +179,7 @@
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
 </head>
+
 <body>
   <main class="wrap">
 
@@ -222,9 +218,9 @@
         Training is tough. Recovery is tougher. Kimora makes both easier. Powered by creatine — the most studied supplement in sports nutrition — and balanced with essential electrolytes, it helps you build strength, recover faster, and stay sharp. Every <strong>stick</strong> gives your body and mind what they need to push harder today and come back stronger tomorrow.
       </p>
       <div class="ticks">
-        <span>Evidence-backed creatine (monohydrate)</span>
-        <span>Electrolytes for hydration & performance</span>
-        <span>Delicious daily sticks you’ll actually take</span>
+        <span>Science-backed performance</span>
+        <span>For athletes and everyday movers alike</span>
+        <span>Born on the mats, built for recovery</span>
       </div>
     </section>
 
@@ -241,6 +237,8 @@
 
     <!-- FLAVOR GALLERY -->
     <h3 class="section-title">THREE FLAVORS. ONE GOAL.</h3>
+    <div class="improve">IMPROVE.</div>
+
     <section class="product-gallery" aria-label="Flavors">
       <figure class="pkg-card">
         <div class="imgbox">
