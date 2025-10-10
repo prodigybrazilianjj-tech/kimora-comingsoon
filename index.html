@@ -5,22 +5,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Kimora — Creatine + Electrolytes (Daily)</title>
 
-  <!-- SEO -->
+  <!-- SEO / Social -->
   <meta name="description" content="Grow Stronger. Think Sharper. Kimora — Creatine + Electrolytes. Daily. Join the waitlist.">
   <meta property="og:title" content="KIMORA — Creatine + Electrolytes (Daily)">
   <meta property="og:description" content="Grow Stronger. Think Sharper. Daily creatine made delicious and easy.">
   <meta property="og:image" content="kimora-flavor-lineup.png">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-
-  <!-- Google Analytics Tag -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9G1REPW4B9"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-9G1REPW4B9');
-  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -95,6 +86,10 @@
     }
     .card h3{ margin:6px 0 8px; font-weight:800 }
     .card p{ margin:0; color:var(--ink-dim) }
+    /* reverted copy */
+    .p-strength{ /* Creatine fuels higher training volume via muscle phosphocreatine. */ }
+    .p-recovery{ /* Creatine + electrolytes help restore energy & hydration so you bounce back faster. */ }
+    .p-focus{ /* Creatine supports brain energy metabolism for sharp, consistent sessions. */ }
 
     /* WHY KIMORA */
     .why{
@@ -128,11 +123,15 @@
     .section-title{
       text-align:center; font-family:"Bebas Neue", sans-serif;
       letter-spacing:.12em; font-size: clamp(22px,3vw,34px);
-      margin:28px 0 10px;
+      margin:28px 0 0px;
     }
-    .improve{
-      text-align:center; color:var(--ink-dim); font-weight:700;
-      margin-bottom:24px; letter-spacing:.1em;
+    .section-kicker{
+      text-align:center;
+      font-family:"Bebas Neue", sans-serif;
+      letter-spacing:.18em;
+      font-size: clamp(18px,2.6vw,28px);   /* bigger IMPROVE */
+      color:var(--ink-dim);
+      margin:6px 0 14px;
     }
     .product-gallery{
       margin-inline:auto;
@@ -154,6 +153,15 @@
     .imgbox{ aspect-ratio: 3 / 4.2; width:100%; background:#fff; border-radius:12px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
     .imgbox img{ width:100%; height:100%; object-fit:contain; display:block; }
 
+    .flavor-copy{
+      margin-top:10px;
+      text-align:center;
+      color:var(--ink-dim);
+      font-size:14px;
+      line-height:1.5;
+    }
+    .flavor-copy b{ color:var(--ink); }
+
     footer{ margin-top:34px; text-align:center }
     .tag{ text-transform:uppercase; letter-spacing:.16em; font-weight:900; color:var(--ink-dim) }
     .copy{ color:#d0c8ae; font-size:12px; margin-top:6px }
@@ -162,7 +170,10 @@
     @media (max-width: 900px){
       .benefits{ grid-template-columns: 1fr; gap:12px }
       .why{ padding:22px 16px }
-      .product-gallery{ grid-template-columns: repeat(2, minmax(240px, 1fr)); gap:18px; }
+      .product-gallery{
+        grid-template-columns: repeat(2, minmax(240px, 1fr));
+        gap:18px;
+      }
     }
     @media (max-width: 680px){
       .brand{ font-size: clamp(56px, 15vw, 90px); }
@@ -179,7 +190,6 @@
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
 </head>
-
 <body>
   <main class="wrap">
 
@@ -195,19 +205,19 @@
       <img src="kimora-flavor-lineup.png" alt="Kimora flavor lineup — Strawberry Guava, Lemon Yuzu, Raspberry Dragonfruit">
     </div>
 
-    <!-- BENEFITS (UPDATED TEXT) -->
+    <!-- BENEFITS (with your preferred wording) -->
     <section class="benefits" aria-label="Benefits">
       <div class="card">
         <h3>Strength</h3>
-        <p>Creatine fuels higher training volume via muscle phosphocreatine.</p>
+        <p class="p-strength">Creatine fuels higher training volume via muscle phosphocreatine.</p>
       </div>
       <div class="card">
         <h3>Recovery</h3>
-        <p>Creatine + electrolytes help restore energy & hydration so you bounce back faster.</p>
+        <p class="p-recovery">Creatine + electrolytes help restore energy &amp; hydration so you bounce back faster.</p>
       </div>
       <div class="card">
         <h3>Focus</h3>
-        <p>Creatine supports brain energy metabolism for sharp, consistent sessions.</p>
+        <p class="p-focus">Creatine supports brain energy metabolism for sharp, consistent sessions.</p>
       </div>
     </section>
 
@@ -218,9 +228,9 @@
         Training is tough. Recovery is tougher. Kimora makes both easier. Powered by creatine — the most studied supplement in sports nutrition — and balanced with essential electrolytes, it helps you build strength, recover faster, and stay sharp. Every <strong>stick</strong> gives your body and mind what they need to push harder today and come back stronger tomorrow.
       </p>
       <div class="ticks">
-        <span>Science-backed performance</span>
-        <span>For athletes and everyday movers alike</span>
-        <span>Born on the mats, built for recovery</span>
+        <span>Evidence-backed creatine (monohydrate)</span>
+        <span>Electrolytes for hydration &amp; performance</span>
+        <span>Delicious daily sticks you’ll actually take</span>
       </div>
     </section>
 
@@ -237,23 +247,34 @@
 
     <!-- FLAVOR GALLERY -->
     <h3 class="section-title">THREE FLAVORS. ONE GOAL.</h3>
-    <div class="improve">IMPROVE.</div>
+    <div class="section-kicker">IMPROVE</div>
 
     <section class="product-gallery" aria-label="Flavors">
       <figure class="pkg-card">
         <div class="imgbox">
           <img src="kimora-strawberry-guava-packaging.png" alt="Kimora Strawberry Guava packaging">
         </div>
+        <figcaption class="flavor-copy">
+          <b>Strawberry Guava</b> — Tart, tropical, and refreshingly smooth.
+        </figcaption>
       </figure>
+
       <figure class="pkg-card">
         <div class="imgbox">
           <img src="kimora-lemon-yuzu-packaging.png" alt="Kimora Lemon Yuzu packaging">
         </div>
+        <figcaption class="flavor-copy">
+          <b>Lemon Yuzu</b> — Bright citrus with a crisp, clean finish.
+        </figcaption>
       </figure>
+
       <figure class="pkg-card">
         <div class="imgbox">
           <img src="kimora-raspberry-dragonfruit-packaging.png" alt="Kimora Raspberry Dragonfruit packaging">
         </div>
+        <figcaption class="flavor-copy">
+          <b>Raspberry Dragonfruit</b> — Bold, juicy, and perfectly balanced.
+        </figcaption>
       </figure>
     </section>
 
