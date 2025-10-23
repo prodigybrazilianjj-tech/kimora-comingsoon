@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Kimora — Creatine + Electrolytes (Daily)</title>
+  <title>Kimora — Creatine + Electrolytes · Grow Stronger. Think Sharper.</title>
 
-   <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9G1REPW4B9"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -15,17 +15,27 @@
   </script>
 
   <!-- SEO / Social -->
+  <link rel="canonical" href="https://kimoraco.com/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="description" content="Grow Stronger. Think Sharper. Kimora — Creatine + Electrolytes. Daily. Join the waitlist.">
+  <meta property="og:url" content="https://kimoraco.com">
   <meta property="og:title" content="KIMORA — Creatine + Electrolytes (Daily)">
   <meta property="og:description" content="Grow Stronger. Think Sharper. Daily creatine made delicious and easy.">
-  <meta property="og:image" content="kimora-flavor-lineup.png">
+  <meta property="og:image" content="https://kimoraco.com/kimora-flavor-lineup.png">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon & Theme -->
+  <link rel="icon" href="/favicon.ico">
+  <meta name="theme-color" content="#0d0d0f">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Preload hero lineup for faster LCP -->
+  <link rel="preload" as="image" href="kimora-flavor-lineup.png" fetchpriority="high">
 
   <style>
     .section-sub{
@@ -94,7 +104,7 @@
 
     /* Lineup image */
     .lineup{ margin-top:12px; margin-bottom:28px; display:flex; justify-content:center; }
-    .lineup img{
+    .lineup picture, .lineup img{
       width:min(1080px, 92vw);
       height:auto; display:block;
       border-radius:18px;
@@ -217,7 +227,7 @@
       .badge{ padding:8px 14px; font-size:11px }
       .tagline{ font-size: clamp(18px,5.5vw,26px); }
       .lineup{ margin-top:10px; margin-bottom:22px }
-      .lineup img{ width:min(720px, 94vw); border-radius:14px }
+      .lineup picture, .lineup img{ width:min(720px, 94vw); border-radius:14px }
       .row{ gap:10px }
       .cta{ height:50px; line-height:50px; font-size:18px }
       .product-gallery{ grid-template-columns: 1fr; gap:16px; }
@@ -239,7 +249,12 @@
 
     <!-- LINEUP -->
     <div class="lineup">
-      <img src="kimora-flavor-lineup.png" alt="Kimora flavor lineup — Strawberry Guava, Lemon Yuzu, Raspberry Dragonfruit">
+      <picture>
+        <source srcset="kimora-flavor-lineup.webp" type="image/webp">
+        <img src="kimora-flavor-lineup.png"
+             alt="Kimora flavor lineup — Strawberry Guava, Lemon Yuzu, Raspberry Dragonfruit"
+             width="1400" height="820">
+      </picture>
     </div>
 
     <!-- BENEFITS -->
@@ -275,7 +290,7 @@
     <form class="row" action="https://formspree.io/f/xovnojzg" method="POST" novalidate>
       <label for="email" class="sr-only">Email address</label>
       <input id="email" type="email" name="email" placeholder="Enter your email" required autocomplete="email" />
-      <button class="cta" type="submit">JOIN THE WAITLIST</button>
+      <button class="cta" type="submit" aria-label="Join the Kimora waitlist">JOIN THE WAITLIST</button>
     </form>
 
     <p class="under-form">
@@ -288,7 +303,11 @@
     <section class="product-gallery" aria-label="Flavors">
       <figure class="pkg-card">
         <div class="imgbox">
-          <img src="kimora-strawberry-guava-packaging.png" alt="Kimora Strawberry Guava packaging">
+          <picture>
+            <source srcset="kimora-strawberry-guava-packaging.webp" type="image/webp">
+            <img src="kimora-strawberry-guava-packaging.png" alt="Kimora Strawberry Guava packaging"
+                 loading="lazy" width="900" height="1260">
+          </picture>
         </div>
         <figcaption class="flavor-copy">
           <b>Strawberry Guava</b> — Tart, tropical, and refreshingly smooth.
@@ -297,7 +316,11 @@
 
       <figure class="pkg-card">
         <div class="imgbox">
-          <img src="kimora-lemon-yuzu-packaging.png" alt="Kimora Lemon Yuzu packaging">
+          <picture>
+            <source srcset="kimora-lemon-yuzu-packaging.webp" type="image/webp">
+            <img src="kimora-lemon-yuzu-packaging.png" alt="Kimora Lemon Yuzu packaging"
+                 loading="lazy" width="900" height="1260">
+          </picture>
         </div>
         <figcaption class="flavor-copy">
           <b>Lemon Yuzu</b> — Bright citrus with a crisp, clean finish.
@@ -306,7 +329,11 @@
 
       <figure class="pkg-card">
         <div class="imgbox">
-          <img src="kimora-raspberry-dragonfruit-packaging.png" alt="Kimora Raspberry Dragonfruit packaging">
+          <picture>
+            <source srcset="kimora-raspberry-dragonfruit-packaging.webp" type="image/webp">
+            <img src="kimora-raspberry-dragonfruit-packaging.png" alt="Kimora Raspberry Dragonfruit packaging"
+                 loading="lazy" width="900" height="1260">
+          </picture>
         </div>
         <figcaption class="flavor-copy">
           <b>Raspberry Dragonfruit</b> — Bold, juicy, and perfectly balanced.
@@ -320,5 +347,18 @@
     </footer>
 
   </main>
+
+  <!-- GA4 event: track waitlist form submits -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.querySelector('form.row');
+      if(!form) return;
+      form.addEventListener('submit', () => {
+        try {
+          gtag('event', 'generate_lead', { method: 'waitlist_form' });
+        } catch(e) {}
+      });
+    });
+  </script>
 </body>
 </html>
