@@ -82,6 +82,76 @@
       padding:28px 16px 84px;
     }
 
+    /* ===== TOP BAR NAV ===== */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(13,13,15,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--ring);
+    }
+    .topbar-inner{
+      width: min(1100px, 92vw);
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .topbar-logo{
+      font-family: "Bebas Neue", system-ui, sans-serif;
+      font-size: 22px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .topbar-nav{
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 13px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .topbar-nav a{
+      text-decoration: none;
+      color: var(--ink-dim);
+      padding: 4px 0;
+      white-space: nowrap;
+    }
+    .topbar-nav a:hover{
+      color: var(--ink);
+    }
+    .topbar-cta{
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--ring);
+      background: var(--accent);
+      color: #eaf7f6 !important;
+      box-shadow: 0 10px 24px rgba(11,89,82,.5);
+      font-weight: 800;
+    }
+    .topbar-cta:hover{
+      background: var(--accent-2);
+    }
+
+    @media (max-width: 780px){
+      .topbar-inner{
+        gap: 10px;
+      }
+      .topbar-nav{
+        gap: 12px;
+        font-size: 11px;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+    }
+
     /* ===== HERO ===== */
     .hero{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:12px; padding-top:8px; margin-bottom:12px; }
     .brand{
@@ -100,6 +170,9 @@
     .tagline{
       font-family:"Bebas Neue", sans-serif;
       letter-spacing:.12em; font-size: clamp(22px,3.2vw,40px);
+    }
+    .hero-cta{
+      margin-top: 12px;
     }
 
     /* Lineup image */
@@ -150,7 +223,23 @@
     input[type=email], .cta{ height:52px; line-height:52px; border-radius:999px; }
     input[type=email]{ padding:0 16px; border:none; width:min(420px,92vw); color:#0a0a0a; background:#fff; box-shadow:0 10px 20px rgba(0,0,0,.45); font-size:16px; outline:2px solid transparent; }
     input[type=email]:focus{ outline:2px solid var(--ring) }
-    .cta{ padding:0 22px; border:none; background:var(--accent); color:#eaf7f6; font-weight:900; box-shadow:0 12px 34px rgba(11,89,82,.45); cursor:pointer; transition:.18s ease; font-family:"Bebas Neue", sans-serif; font-size:20px; letter-spacing:.12em; }
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 22px;
+      border:none;
+      background:var(--accent);
+      color:#eaf7f6;
+      font-weight:900;
+      box-shadow:0 12px 34px rgba(11,89,82,.45);
+      cursor:pointer;
+      transition:.18s ease;
+      font-family:"Bebas Neue", sans-serif;
+      font-size:20px;
+      letter-spacing:.12em;
+      text-decoration:none;
+    }
     .cta:hover{ background:var(--accent-2); transform:translateY(-1px) }
     .under-form{ text-align:center; color:var(--ink-dim); margin:6px 0 26px; font-size:14px; }
 
@@ -232,19 +321,36 @@
       .cta{ height:50px; line-height:50px; font-size:18px }
       .product-gallery{ grid-template-columns: 1fr; gap:16px; }
       .pkg-card{ max-width:420px }
+      .hero-cta{ margin-top:10px; }
     }
 
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
 </head>
 <body>
-  <main class="wrap">
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="#top" class="topbar-logo">KIMORA</a>
+      <nav class="topbar-nav" aria-label="Main navigation">
+        <a href="#flavors">Flavors</a>
+        <a href="#formula">Formula</a>
+        <a href="#how-to-use">How to Use</a>
+        <a href="#compare">Why Not a Tub?</a>
+        <a href="#about">About</a>
+        <a href="#waitlist" class="topbar-cta">Join Waitlist</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" id="top">
 
     <!-- HERO -->
     <section class="hero">
       <h1 class="brand">KIMORA</h1>
       <div class="badge">CREATINE · ELECTROLYTES · DAILY</div>
       <div class="tagline">GROW STRONGER. THINK SHARPER.</div>
+      <a class="cta hero-cta" href="#waitlist">JOIN THE WAITLIST</a>
     </section>
 
     <!-- LINEUP -->
@@ -287,7 +393,7 @@
     </section>
 
     <!-- EMAIL FORM -->
-    <form class="row" action="https://formspree.io/f/xovnojzg" method="POST" novalidate>
+    <form class="row" id="waitlist" action="https://formspree.io/f/xovnojzg" method="POST" novalidate>
       <label for="email" class="sr-only">Email address</label>
       <input id="email" type="email" name="email" placeholder="Enter your email" required autocomplete="email" />
       <button class="cta" type="submit" aria-label="Join the Kimora waitlist">JOIN THE WAITLIST</button>
@@ -298,7 +404,7 @@
     </p>
 
     <!-- FLAVOR GALLERY -->
-    <h3 class="section-title">THREE FLAVORS. ONE GOAL. IMPROVE.</h3>
+    <h3 class="section-title" id="flavors">THREE FLAVORS. ONE GOAL. IMPROVE.</h3>
 
     <section class="product-gallery" aria-label="Flavors">
       <figure class="pkg-card">
@@ -341,7 +447,7 @@
       </figure>
     </section>
 
-        <!-- WHAT'S INSIDE -->
+    <!-- WHAT'S INSIDE -->
     <section class="why" id="formula">
       <h2>WHAT'S INSIDE EACH STICK</h2>
       <p>
@@ -355,7 +461,7 @@
       </div>
     </section>
 
-        <!-- HOW TO USE -->
+    <!-- HOW TO USE -->
     <section class="why" id="how-to-use" style="margin-top:22px;">
       <h2>HOW TO USE KIMORA</h2>
       <p>
@@ -368,8 +474,8 @@
         <span>Stacks easily with your current supplements</span>
       </div>
     </section>
-    
-        <!-- COMPARE VS GENERIC CREATINE -->
+
+    <!-- COMPARE VS GENERIC CREATINE -->
     <section class="why" id="compare" style="margin-top:22px;">
       <h2>WHY NOT JUST A HUGE TUB OF PLAIN CREATINE?</h2>
       <p>
@@ -383,7 +489,7 @@
         <span>Creatine + electrolytes in one daily habit</span>
       </div>
     </section>
-    
+
     <!-- ABOUT KIMORA -->
     <section class="why" id="about" style="margin-top:26px;">
       <h2>ABOUT KIMORA</h2>
@@ -396,11 +502,11 @@
       </p>
     </section>
 
-     <footer>
+    <footer>
       <div class="tag">OUT-TRAIN. OUT-SMART. OUT-LAST.</div>
       <div class="copy">Kimora Co. © 2025 · All rights reserved.</div>
       <div class="copy" style="margin-top:4px;">
-        <a href="mailto:hello@kimoraco.com">alex@kimoraco.com</a>
+        <a href="mailto:alex@kimoraco.com">alex@kimoraco.com</a>
         <!-- Add socials when ready -->
         <!-- · <a href="https://www.instagram.com/yourhandle" target="_blank" rel="noopener">Instagram</a> -->
       </div>
