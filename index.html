@@ -200,7 +200,7 @@
     .p-recovery{}
     .p-focus{}
 
-    /* WHY KIMORA */
+    /* WHY KIMORA (card style) */
     .why{
       margin: 28px 0 18px;
       background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
@@ -217,6 +217,118 @@
       margin-top:12px; color:var(--ink-dim); font-weight:700; font-size:14px;
     }
     .ticks span::before{ content:"✓ "; opacity:.9 }
+
+    /* FORMULA SECTION (alt layout) */
+    .formula-section{
+      margin: 34px 0 18px;
+      padding: 26px 20px;
+      border-radius:18px;
+      border:1px solid var(--ring);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
+    }
+    .formula-section h2{
+      font-family:"Bebas Neue", sans-serif;
+      letter-spacing:.14em;
+      font-size: clamp(26px,3vw,36px);
+      margin:0 0 8px;
+      text-align:center;
+    }
+    .formula-section p{
+      max-width:900px;
+      margin:0 auto;
+      color:var(--ink-dim);
+      line-height:1.65;
+      text-align:center;
+    }
+    .formula-grid{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:22px;
+    }
+    .formula-group{
+      text-align:left;
+    }
+    .formula-group h3{
+      margin:0 0 8px;
+      font-size:13px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--ink-dim);
+    }
+    .formula-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      color:var(--ink-dim);
+      font-size:14px;
+      line-height:1.7;
+    }
+    .formula-list li{
+      position:relative;
+      padding-left:18px;
+    }
+    .formula-list li::before{
+      content:"•";
+      position:absolute;
+      left:4px;
+      top:0;
+      opacity:.9;
+    }
+
+    /* HOW TO USE (step cards) */
+    .how-section{
+      margin:32px 0 10px;
+      text-align:center;
+    }
+    .how-section h2{
+      font-family:"Bebas Neue", sans-serif;
+      letter-spacing:.14em;
+      font-size: clamp(26px,3vw,36px);
+      margin:0 0 8px;
+    }
+    .how-section p{
+      max-width:780px;
+      margin:0 auto 16px;
+      color:var(--ink-dim);
+      line-height:1.65;
+    }
+    .how-steps{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:18px;
+    }
+    .how-step{
+      background:var(--panel);
+      border-radius:18px;
+      border:1px solid var(--ring);
+      padding:16px 16px 18px;
+      box-shadow:0 18px 50px rgba(0,0,0,.38);
+      text-align:left;
+      font-size:14px;
+      color:var(--ink-dim);
+    }
+    .how-step-label{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:26px;
+      height:26px;
+      border-radius:999px;
+      border:1px solid var(--ring);
+      font-size:13px;
+      font-weight:700;
+      margin-bottom:8px;
+      color:var(--ink);
+    }
+    .how-step-title{
+      font-weight:700;
+      margin:0 0 4px;
+      color:var(--ink);
+    }
 
     /* Email form */
     .row{ display:flex; gap:12px; justify-content:center; align-items:center; margin:22px 0 6px; flex-wrap:wrap; }
@@ -309,6 +421,15 @@
       .product-gallery{
         grid-template-columns: repeat(2, minmax(240px, 1fr));
         gap:18px;
+      }
+      .formula-grid{
+        grid-template-columns: 1fr;
+      }
+      .how-steps{
+        grid-template-columns: 1fr;
+      }
+      .how-step{
+        text-align:left;
       }
     }
     @media (max-width: 680px){
@@ -448,31 +569,60 @@
     </section>
 
     <!-- WHAT'S INSIDE -->
-    <section class="why" id="formula">
+    <section class="formula-section" id="formula">
       <h2>WHAT'S INSIDE EACH STICK</h2>
       <p>
-        Kimora is built around micronized creatine monohydrate and a balanced electrolyte blend —
-        so you get performance and hydration support in one daily stick, without the junk.
+        Every Kimora stick is built around 5 g of micronized creatine monohydrate and a balanced
+        electrolyte blend, with a clean acid system and monk fruit for sweetness — no sugar,
+        no stevia, and no artificial colors or fillers.
       </p>
-      <div class="ticks">
-        <span>~5 g micronized creatine monohydrate</span>
-        <span>Balanced sodium · potassium · magnesium electrolytes</span>
-        <span>Lightly sweetened with monk fruit (no added sugar)</span>
+      <div class="formula-grid">
+        <div class="formula-group">
+          <h3>Performance &amp; Hydration</h3>
+          <ul class="formula-list">
+            <li>5 g micronized creatine monohydrate</li>
+            <li>~500 mg sodium (NaCl + trisodium citrate blend)</li>
+            <li>250 mg potassium (from potassium citrate)</li>
+            <li>60 mg magnesium (citrate + malate blend)</li>
+          </ul>
+        </div>
+        <div class="formula-group">
+          <h3>Clean, Daily Formula</h3>
+          <ul class="formula-list">
+            <li>Sweetened only with monk fruit (no sugar, no sugar alcohols)</li>
+            <li>Citric + malic + ascorbic acid flavor system</li>
+            <li>Natural flavors only</li>
+            <li>Rice hull concentrate as flow agent (no silicon dioxide)</li>
+            <li>No artificial colors, sweeteners, or fillers</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <!-- HOW TO USE -->
-    <section class="why" id="how-to-use" style="margin-top:22px;">
+    <section class="how-section" id="how-to-use">
       <h2>HOW TO USE KIMORA</h2>
       <p>
-        One stick. Once a day. Rip, pour into 12–20 oz of cold water, shake or stir, and drink.
-        Take it any time — pre-training, post-training, or with a meal — as long as you're consistent.
+        One stick a day. Rip, pour into 12–20 oz of cold water, shake or stir, and drink.
+        Use it pre-training, post-training, or with a meal — just stay consistent.
       </p>
-      <div class="ticks">
-        <span>1 stick per day · no complicated loading phase</span>
-        <span>Mixes quickly in a shaker bottle or glass</span>
-        <span>Stacks easily with your current supplements</span>
-      </div>
+      <ol class="how-steps">
+        <li class="how-step">
+          <div class="how-step-label">1</div>
+          <p class="how-step-title">Fill your bottle</p>
+          <p>Start with 12–20 oz of cold water in a shaker bottle or glass.</p>
+        </li>
+        <li class="how-step">
+          <div class="how-step-label">2</div>
+          <p class="how-step-title">Rip, pour, mix</p>
+          <p>Open one stick, pour it in, then shake or stir for 10–15 seconds.</p>
+        </li>
+        <li class="how-step">
+          <div class="how-step-label">3</div>
+          <p class="how-step-title">Drink daily</p>
+          <p>Enjoy any time of day and make it a non-negotiable daily habit.</p>
+        </li>
+      </ol>
     </section>
 
     <!-- COMPARE VS GENERIC CREATINE -->
