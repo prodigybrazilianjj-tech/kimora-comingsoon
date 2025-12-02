@@ -38,13 +38,6 @@
   <link rel="preload" as="image" href="kimora-flavor-lineup.png" fetchpriority="high">
 
   <style>
-    .form-status{
-  text-align:center;
-  color:var(--ink-dim);
-  font-size:13px;
-  min-height:18px; /* reserves space so layout doesn’t jump */
-  margin-top:4px;
-}
     .section-sub{
       display:flex; justify-content:center;
       margin:-4px 0 14px;
@@ -58,9 +51,10 @@
       font: 800 13px/1 Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       letter-spacing:.16em; text-transform:uppercase;
       color:var(--ink-dim);
+      white-space:nowrap;
     }
     @media (max-width:680px){
-      .microtag{ font-size:12px; padding:5px 10px }
+      .microtag{ font-size:11px; padding:5px 10px; white-space:normal; text-align:center; }
     }
 
     :root{
@@ -75,6 +69,9 @@
 
     *{box-sizing:border-box}
     html,body{margin:0;height:100%}
+    html{
+      scroll-padding-top:120px; /* keeps sections visible below sticky nav */
+    }
     body{
       background: radial-gradient(1200px 700px at 50% -10%, rgba(255,255,255,.06), transparent 55%) var(--bg);
       color:var(--ink);
@@ -160,7 +157,7 @@
     }
 
     /* ===== HERO ===== */
-    .hero{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:12px; padding-top:8px; margin-bottom:12px; }
+    .hero{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:10px; padding-top:18px; margin-bottom:12px; }
     .brand{
       font-family:"Bebas Neue", system-ui, sans-serif;
       font-size: clamp(72px, 12vw, 150px);
@@ -179,7 +176,7 @@
       letter-spacing:.12em; font-size: clamp(22px,3.2vw,40px);
     }
     .hero-cta{
-      margin-top: 12px;
+      margin-top: 8px;
     }
 
     /* Lineup image */
@@ -203,9 +200,6 @@
     }
     .card h3{ margin:6px 0 8px; font-weight:800 }
     .card p{ margin:0; color:var(--ink-dim) }
-    .p-strength{}
-    .p-recovery{}
-    .p-focus{}
 
     /* WHY KIMORA (card style) */
     .why{
@@ -317,6 +311,11 @@
       text-align:left;
       font-size:14px;
       color:var(--ink-dim);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .how-step:hover{
+      transform: translateY(-3px);
+      box-shadow:0 22px 60px rgba(0,0,0,.55);
     }
     .how-step-label{
       display:inline-flex;
@@ -362,19 +361,19 @@
     .cta:hover{ background:var(--accent-2); transform:translateY(-1px) }
     .under-form{ text-align:center; color:var(--ink-dim); margin:6px 0 26px; font-size:14px; }
 
+    .form-status{
+      text-align:center;
+      color:var(--ink-dim);
+      font-size:13px;
+      min-height:18px;
+      margin-top:4px;
+    }
+
     /* ===== FLAVOR GALLERY ===== */
     .section-title{
       text-align:center; font-family:"Bebas Neue", sans-serif;
       letter-spacing:.12em; font-size: clamp(22px,3vw,34px);
       margin:28px 0 0px;
-    }
-    .section-kicker{
-      text-align:center;
-      font-family:"Bebas Neue", sans-serif;
-      letter-spacing:.18em;
-      font-size: clamp(18px,2.6vw,28px);
-      color:var(--ink-dim);
-      margin:6px 0 14px;
     }
     .product-gallery{
       margin-inline:auto;
@@ -478,6 +477,9 @@
       <h1 class="brand">KIMORA</h1>
       <div class="badge">CREATINE · ELECTROLYTES · DAILY</div>
       <div class="tagline">GROW STRONGER. THINK SHARPER.</div>
+      <div class="section-sub">
+        <div class="microtag">BUILT FOR BJJ · MMA · MUAY THAI · LIFTERS</div>
+      </div>
       <a class="cta hero-cta" href="#waitlist">JOIN THE WAITLIST</a>
     </section>
 
@@ -495,15 +497,15 @@
     <section class="benefits" aria-label="Benefits">
       <div class="card">
         <h3>Strength</h3>
-        <p class="p-strength">Creatine fuels higher training volume via muscle phosphocreatine.</p>
+        <p>Creatine fuels higher training volume for heavier lifts, harder rolls, and longer rounds.</p>
       </div>
       <div class="card">
         <h3>Recovery</h3>
-        <p class="p-recovery">Creatine + electrolytes help restore energy &amp; hydration so you bounce back faster.</p>
+        <p>Creatine + electrolytes help restore energy &amp; hydration so you bounce back faster between sessions.</p>
       </div>
       <div class="card">
         <h3>Focus</h3>
-        <p class="p-focus">Creatine supports brain energy metabolism for sharp, consistent sessions.</p>
+        <p>Creatine supports brain energy metabolism for sharp decision-making under pressure.</p>
       </div>
     </section>
 
@@ -515,7 +517,7 @@
       </p>
       <div class="ticks">
         <span>Science-backed performance</span>
-        <span>For athletes and everyday movers alike</span>
+        <span>Built for rolls, rounds, and heavy sets</span>
         <span>Delicious daily sticks you’ll actually take</span>
       </div>
     </section>
@@ -587,7 +589,7 @@
       </p>
       <div class="formula-grid">
         <div class="formula-group">
-          <h3>Performance &amp; Hydration</h3>
+          <h3>PERFORMANCE &amp; HYDRATION</h3>
           <ul class="formula-list">
             <li>5 g micronized creatine monohydrate</li>
             <li>~500 mg sodium (NaCl + trisodium citrate blend)</li>
@@ -596,7 +598,7 @@
           </ul>
         </div>
         <div class="formula-group">
-          <h3>Clean, Daily Formula</h3>
+          <h3>CLEAN, DAILY FORMULA</h3>
           <ul class="formula-list">
             <li>Sweetened only with monk fruit (no sugar, no sugar alcohols)</li>
             <li>Citric + malic + ascorbic acid flavor system</li>
@@ -666,8 +668,6 @@
       <div class="copy">Kimora Co. © 2025 · All rights reserved.</div>
       <div class="copy" style="margin-top:4px;">
         <a href="mailto:alex@kimoraco.com">alex@kimoraco.com</a>
-        <!-- Add socials when ready -->
-        <!-- · <a href="https://www.instagram.com/yourhandle" target="_blank" rel="noopener">Instagram</a> -->
       </div>
       <div class="copy" style="margin-top:8px; max-width:640px; margin-left:auto; margin-right:auto;">
         These statements have not been evaluated by the Food and Drug Administration. This product is not
@@ -678,52 +678,51 @@
 
   </main>
 
-  <!-- GA4 event: track waitlist form submits -->
+  <!-- GA4 + AJAX Form submit -->
   <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('form.row');
-    const statusEl = document.getElementById('form-status');
-    if (!form) return;
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.querySelector('form.row');
+      const statusEl = document.getElementById('form-status');
+      if (!form) return;
 
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault(); // stop the default redirect
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault(); // avoid redirect
 
-      if (statusEl) {
-        statusEl.textContent = 'Sending...';
-      }
-
-      // GA event
-      try {
-        gtag('event', 'generate_lead', { method: 'waitlist_form' });
-      } catch (e) {}
-
-      const data = new FormData(form);
-
-      try {
-        const response = await fetch(form.action, {
-          method: form.method,
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-          if (statusEl) {
-            statusEl.textContent = 'You’re in. Check your inbox soon 👊';
-          }
-          form.reset();
-        } else {
-          if (statusEl) {
-            statusEl.textContent = 'Something went wrong. Please try again.';
-          }
-        }
-      } catch (error) {
         if (statusEl) {
-          statusEl.textContent = 'Network error. Please try again in a moment.';
+          statusEl.textContent = 'Sending...';
         }
-      }
-    });
-  });
-</script>
 
+        // GA event
+        try {
+          gtag('event', 'generate_lead', { method: 'waitlist_form' });
+        } catch (e) {}
+
+        const data = new FormData(form);
+
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (response.ok) {
+            if (statusEl) {
+              statusEl.textContent = 'You’re in. Check your inbox soon 👊';
+            }
+            form.reset();
+          } else {
+            if (statusEl) {
+              statusEl.textContent = 'Something went wrong. Please try again.';
+            }
+          }
+        } catch (error) {
+          if (statusEl) {
+            statusEl.textContent = 'Network error. Please try again in a moment.';
+          }
+        }
+      });
+    });
+  </script>
 </body>
 </html>
