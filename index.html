@@ -219,62 +219,65 @@
     }
     .ticks span::before{ content:"✓ "; opacity:.9 }
 
-    /* FORMULA SECTION (alt layout) */
-    .formula-section{
-      margin: 34px 0 18px;
-      padding: 26px 20px;
-      border-radius:18px;
-      border:1px solid var(--ring);
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
+    /* WHAT'S INSIDE (new centered layout) */
+    .formula-section {
+      margin: 32px 0 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border: 1px solid var(--ring);
+      border-radius: 18px;
+      padding: 26px 20px 24px;
+      text-align: center;
     }
-    .formula-section h2{
+    .formula-section h2 {
       font-family:"Bebas Neue", sans-serif;
       letter-spacing:.14em;
       font-size: clamp(26px,3vw,36px);
       margin:0 0 8px;
-      text-align:center;
     }
-    .formula-section p{
-      max-width:900px;
-      margin:0 auto;
-      color:var(--ink-dim);
-      line-height:1.65;
-      text-align:center;
+    .formula-section > p {
+      max-width: 880px;
+      margin: 0 auto;
+      color: var(--ink-dim);
+      line-height: 1.6;
     }
-    .formula-grid{
-      margin-top:18px;
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap:22px;
+    .formula-grid {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 60px;
+      margin-top: 24px;
+      flex-wrap: wrap;
     }
-    .formula-group{
-      text-align:left;
+    .formula-group {
+      width: 300px;
+      text-align: left;
     }
-    .formula-group h3{
-      margin:0 0 8px;
-      font-size:13px;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      color:var(--ink-dim);
+    .formula-group h3 {
+      font-size: 13px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+      color: var(--ink-dim);
     }
-    .formula-list{
-      list-style:none;
-      padding:0;
-      margin:0;
-      color:var(--ink-dim);
-      font-size:14px;
-      line-height:1.7;
+    .formula-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: var(--ink-dim);
+      font-size: 14px;
     }
-    .formula-list li{
-      position:relative;
-      padding-left:18px;
+    .formula-list li {
+      margin-bottom: 8px;
+      line-height: 1.5;
     }
-    .formula-list li::before{
-      content:"•";
-      position:absolute;
-      left:4px;
-      top:0;
-      opacity:.9;
+    .formula-list strong {
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .formula-section .formula-footer {
+      margin-top: 12px;
+      color: var(--ink-dim);
+      font-size: 14px;
     }
 
     /* HOW TO USE (step cards) */
@@ -428,9 +431,6 @@
         grid-template-columns: repeat(2, minmax(240px, 1fr));
         gap:18px;
       }
-      .formula-grid{
-        grid-template-columns: 1fr;
-      }
       .how-steps{
         grid-template-columns: 1fr;
       }
@@ -449,6 +449,8 @@
       .product-gallery{ grid-template-columns: 1fr; gap:16px; }
       .pkg-card{ max-width:420px }
       .hero-cta{ margin-top:10px; }
+      .formula-grid{ gap:20px; }
+      .formula-group{ width:100%; }
     }
 
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -579,8 +581,7 @@
       </figure>
     </section>
 
-
-       <!-- WHAT'S INSIDE -->
+    <!-- WHAT'S INSIDE -->
     <section class="formula-section" id="formula">
       <h2>WHAT'S INSIDE EACH STICK</h2>
       <p>
@@ -611,14 +612,11 @@
         </div>
       </div>
 
-      <p style="margin-top:10px;">
-        No artificial colors, sweeteners, or fillers.
-      </p>
-      <p style="margin-top:4px;">
-        Mix 1 stick into 12–20 oz of cold water and drink once daily.
-      </p>
+      <div class="formula-footer">
+        <div>No artificial colors, sweeteners, or fillers.</div>
+        <div style="margin-top:4px;">Mix 1 stick into 12–20 oz of cold water and drink once daily.</div>
+      </div>
     </section>
-
 
     <!-- COMPARE VS GENERIC CREATINE -->
     <section class="why" id="compare" style="margin-top:22px;">
@@ -646,21 +644,21 @@
         grow stronger and think sharper over the long term.
       </p>
     </section>
-    
-<section class="why" id="faq" style="margin-top:32px;">
-  <h2>FAQ</h2>
-  <p>A couple of quick answers. For the full list, check the FAQ page.</p>
 
-  <div class="ticks" style="margin-top:14px; text-align:left; max-width:720px; margin-left:auto; margin-right:auto;">
-    <span><strong>Do I need to “load” Kimora?</strong> No. Just take one 5 g stick every day and let your levels build over time.</span>
-    <span><strong>When should I take it?</strong> Whenever you’ll actually remember it — morning, pre-training, post-training, or with a meal.</span>
-  </div>
+    <!-- FAQ PREVIEW -->
+    <section class="why" id="faq" style="margin-top:32px;">
+      <h2>FAQ</h2>
+      <p>A couple of quick answers. For the full list, check the FAQ page.</p>
 
-  <p style="margin-top:18px;">
-    <a href="/faq.html" style="text-decoration:underline; font-weight:600;">View all FAQs →</a>
-  </p>
-</section>
+      <div class="ticks" style="margin-top:14px; text-align:left; max-width:720px; margin-left:auto; margin-right:auto;">
+        <span><strong>Do I need to “load” Kimora?</strong> No. Just take one 5 g stick every day and let your levels build over time.</span>
+        <span><strong>When should I take it?</strong> Whenever you’ll actually remember it — morning, pre-training, post-training, or with a meal.</span>
+      </div>
 
+      <p style="margin-top:18px;">
+        <a href="/faq.html" style="text-decoration:underline; font-weight:600;">View all FAQs →</a>
+      </p>
+    </section>
 
     <footer>
       <div class="tag">OUT-TRAIN. OUT-SMART. OUT-LAST.</div>
