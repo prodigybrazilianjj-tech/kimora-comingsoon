@@ -70,13 +70,14 @@
     *{box-sizing:border-box}
     html,body{margin:0;height:100%}
     html{
-      scroll-padding-top:120px; /* keeps sections visible below sticky nav */
+      scroll-padding-top:120px; /* keeps sections visible below sticky/fixed nav */
     }
     body{
       background: radial-gradient(1200px 700px at 50% -10%, rgba(255,255,255,.06), transparent 55%) var(--bg);
       color:var(--ink);
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+      padding-top: 60px; /* make room for fixed topbar */
     }
     a{color:inherit}
 
@@ -88,8 +89,10 @@
 
     /* ===== TOP BAR NAV ===== */
     .topbar{
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 40;
       background: rgba(13,13,15,.96);
       backdrop-filter: blur(12px);
